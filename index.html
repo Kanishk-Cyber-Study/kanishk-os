@@ -1,0 +1,2656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#020b18">
+<title>KANISHK OS - PRO EDITION</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@500;600;700&display=swap');
+
+:root {
+    --cyan: #00f3ff;
+    --blue: #087bff;
+    --green: #39ff14;
+    --emerald: #10b981;
+    --purple: #9d4edd;
+    --amber: #ffbe0b;
+    --red: #ff073a;
+    --pink: #ff2a85;
+    --bg-dark: #010812;
+    --card-bg: rgba(4, 20, 42, 0.72);
+    --border-glow: rgba(0, 243, 255, 0.32);
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    margin: 0;
+    padding: 12px 12px 100px 12px;
+    font-family: 'Rajdhani', 'Orbitron', sans-serif;
+    background: radial-gradient(circle at 50% 0%, #062246 0%, #020b18 55%, #000000 100%);
+    background-attachment: fixed;
+    color: #eafaff;
+    overflow-x: hidden;
+    user-select: none;
+}
+
+h1, h2, h3, h4, .orbitron {
+    font-family: 'Orbitron', monospace;
+}
+
+/* ==========================================
+   1. TOP SYSTEM BAR (EXACT IMAGE MATCH)
+   ========================================== */
+.kos-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: rgba(2, 14, 30, 0.85);
+    border: 1px solid var(--border-glow);
+    border-radius: 16px;
+    margin-bottom: 14px;
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.12);
+}
+
+.kos-brand-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.kos-k-logo {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 2px solid var(--cyan);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Orbitron', monospace;
+    font-weight: 900;
+    font-size: 18px;
+    color: #fff;
+    background: radial-gradient(circle, #087bff55, #000);
+    box-shadow: 0 0 12px var(--cyan), inset 0 0 8px var(--cyan);
+    position: relative;
+}
+
+.kos-k-logo::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 1px dashed var(--cyan);
+    animation: spinSlow 14s linear infinite;
+}
+
+@keyframes spinSlow {
+    to { transform: rotate(360deg); }
+}
+
+.kos-brand-text h1 {
+    margin: 0;
+    font-size: 16px;
+    letter-spacing: 1.5px;
+    color: #fff;
+    text-shadow: 0 0 10px var(--cyan);
+}
+
+.kos-brand-text p {
+    margin: 0;
+    font-size: 8px;
+    color: var(--cyan);
+    letter-spacing: 2px;
+}
+
+.kos-top-badges {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.kos-pill {
+    padding: 4px 8px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(0, 30, 60, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.kos-pill.offline { color: #39ff8b; border-color: rgba(57, 255, 139, 0.4); }
+.kos-pill.pro { color: #ffbe0b; border-color: rgba(255, 190, 11, 0.4); }
+.kos-gear-btn {
+    background: rgba(0, 243, 255, 0.1);
+    border: 1px solid var(--border-glow);
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* ==========================================
+   2. HERO MOUNTAIN BANNER + JARVIS AI ASSISTANT
+   ========================================== */
+.hero-wrapper {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 243, 255, 0.45);
+    background:
+        linear-gradient(90deg, rgba(2,10,24,0.92) 0%, rgba(4,20,45,0.65) 55%, rgba(2,12,28,0.9) 100%),
+        url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=80') center/cover no-repeat;
+    padding: 16px;
+    margin-bottom: 14px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 243, 255, 0.15);
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 10px;
+    align-items: center;
+}
+
+@media (max-width: 400px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.greeting-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sun-icon {
+    font-size: 26px;
+    filter: drop-shadow(0 0 8px #ffbe0b);
+}
+
+.greeting-title {
+    font-size: 16px;
+    color: #fff;
+    margin: 0;
+    font-weight: 700;
+}
+
+.greeting-name {
+    font-family: 'Orbitron', monospace;
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--cyan);
+    margin: 0;
+    text-shadow: 0 0 12px rgba(0, 243, 255, 0.7);
+}
+
+.hero-quote {
+    margin: 8px 0 4px 0;
+    font-size: 12px;
+    color: #e0f7ff;
+    font-style: italic;
+}
+
+.hero-author {
+    font-size: 10px;
+    color: var(--cyan);
+    margin: 0;
+}
+
+.hero-clock-strip {
+    margin-top: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(255, 190, 11, 0.45);
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-family: 'Orbitron', monospace;
+    font-size: 11px;
+}
+
+.jarvis-box {
+    background: rgba(3, 22, 46, 0.85);
+    border: 1px solid var(--cyan);
+    border-radius: 16px;
+    padding: 10px 12px;
+    box-shadow: 0 0 18px rgba(0, 243, 255, 0.25), inset 0 0 12px rgba(0, 243, 255, 0.12);
+    position: relative;
+}
+
+.jarvis-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.jarvis-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.jarvis-orb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff, var(--cyan), #087bff);
+    box-shadow: 0 0 10px var(--cyan);
+    animation: pulseOrb 2s infinite alternate;
+}
+
+@keyframes pulseOrb {
+    from { transform: scale(0.9); box-shadow: 0 0 6px var(--cyan); }
+    to { transform: scale(1.12); box-shadow: 0 0 16px var(--cyan); }
+}
+
+.jarvis-name {
+    font-family: 'Orbitron', monospace;
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--cyan);
+}
+
+.jarvis-sub {
+    font-size: 9px;
+    color: #8ab4d8;
+    display: block;
+}
+
+.jarvis-msg {
+    font-size: 12px;
+    color: #fff;
+    line-height: 1.35;
+    margin: 4px 0 8px 0;
+}
+
+.jarvis-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.jarvis-mini-btn {
+    flex: 1;
+    background: rgba(0, 243, 255, 0.14);
+    border: 1px solid var(--cyan);
+    color: var(--cyan);
+    border-radius: 8px;
+    padding: 5px 6px;
+    font-family: 'Orbitron', monospace;
+    font-size: 9px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* ==========================================
+   3. 4 METRIC CARDS
+   ========================================== */
+.metrics-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.metric-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-glow);
+    border-radius: 16px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+    cursor: pointer;
+}
+
+.metric-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.metric-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    background: rgba(0, 243, 255, 0.12);
+    border: 1px solid var(--cyan);
+}
+
+.metric-info span {
+    font-size: 11px;
+    color: #9bcce5;
+    display: block;
+}
+
+.metric-info strong {
+    font-family: 'Orbitron', monospace;
+    font-size: 17px;
+    color: #fff;
+}
+
+.metric-bar-bg {
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    margin-top: 8px;
+    overflow: hidden;
+}
+
+.metric-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--blue), var(--cyan));
+    border-radius: 6px;
+    transition: width 0.4s;
+}
+
+.metric-foot {
+    font-size: 10px;
+    margin-top: 6px;
+    color: #39ff8b;
+    font-weight: 600;
+}
+
+/* ==========================================
+   4. SUBJECT CARDS + NEXT BEST ACTION
+   ========================================== */
+.section-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-glow);
+    border-radius: 18px;
+    padding: 14px;
+    margin-bottom: 14px;
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.06);
+}
+
+.section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.section-head h3 {
+    margin: 0;
+    font-size: 14px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.view-all-link {
+    font-size: 11px;
+    color: var(--cyan);
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.subjects-4-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.subj-box {
+    border-radius: 16px;
+    padding: 14px 12px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.subj-box:active {
+    transform: scale(0.97);
+}
+
+.subj-box.math {
+    background: linear-gradient(145deg, #0b4ec2 0%, #041a47 100%);
+    border: 1px solid #2ec4ff;
+    box-shadow: 0 0 15px rgba(46, 196, 255, 0.25);
+}
+
+.subj-box.reasoning {
+    background: linear-gradient(145deg, #6b11b4 0%, #250548 100%);
+    border: 1px solid #c77dff;
+    box-shadow: 0 0 15px rgba(199, 125, 255, 0.25);
+}
+
+.subj-box.english {
+    background: linear-gradient(145deg, #098a3e 0%, #033016 100%);
+    border: 1px solid #39ff8b;
+    box-shadow: 0 0 15px rgba(57, 255, 139, 0.25);
+}
+
+.subj-box.gs {
+    background: linear-gradient(145deg, #b87306 0%, #3d2202 100%);
+    border: 1px solid #ffbe0b;
+    box-shadow: 0 0 15px rgba(255, 190, 11, 0.25);
+}
+
+.subj-icon-big {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.14);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.subj-box h4 {
+    margin: 0;
+    font-size: 15px;
+    color: #fff;
+}
+
+.subj-box p {
+    margin: 2px 0 10px 0;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.subj-prog-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+}
+
+.subj-prog-bar {
+    flex: 1;
+    height: 6px;
+    background: rgba(0, 0, 0, 0.45);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.subj-prog-fill {
+    height: 100%;
+    background: #fff;
+    border-radius: 6px;
+}
+
+.subj-prog-txt {
+    font-family: 'Orbitron', monospace;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.next-action-card {
+    background: linear-gradient(145deg, rgba(6, 28, 56, 0.9), rgba(2, 10, 24, 0.95));
+    border: 1px solid var(--cyan);
+    border-radius: 18px;
+    padding: 15px;
+    margin-bottom: 14px;
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.15);
+}
+
+.nba-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(90deg, #ff9900, #ffbe0b);
+    color: #000;
+    font-family: 'Orbitron', monospace;
+    font-weight: 900;
+    font-size: 13px;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 0 15px rgba(255, 190, 11, 0.45);
+}
+
+/* ==========================================
+   5. FOCUS & TOOLS (5 ICONS) + CIRCULAR PROGRESS
+   ========================================== */
+.tools-5-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+}
+
+@media (max-width: 380px) {
+    .tools-5-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.tool-tile {
+    background: rgba(2, 14, 30, 0.85);
+    border: 1px solid rgba(0, 243, 255, 0.35);
+    border-radius: 14px;
+    padding: 10px 4px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.tool-tile:active { transform: scale(0.95); }
+.tool-tile.t-timer { border-color: #00f3ff; }
+.tool-tile.t-watch { border-color: #c77dff; }
+.tool-tile.t-notes { border-color: #ff2a85; }
+.tool-tile.t-cal   { border-color: #39ff8b; }
+.tool-tile.t-vault { border-color: #ff073a; }
+
+.tool-tile-icon {
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.tool-tile-name {
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.tool-tile-sub {
+    font-size: 9px;
+    color: var(--cyan);
+    margin-top: 2px;
+}
+
+.quote-ring-card {
+    background:
+        linear-gradient(90deg, rgba(2,12,26,0.92) 0%, rgba(4,22,44,0.75) 100%),
+        url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80') center/cover;
+    border: 1px solid var(--border-glow);
+    border-radius: 18px;
+    padding: 16px;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.ring-circle {
+    width: 86px;
+    height: 86px;
+    border-radius: 50%;
+    background: conic-gradient(var(--cyan) 0deg, var(--blue) 240deg, rgba(255,255,255,0.1) 240deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 16px rgba(0, 243, 255, 0.35);
+    flex-shrink: 0;
+}
+
+.ring-inner {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #020e1f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Orbitron', monospace;
+    font-size: 15px;
+    font-weight: 900;
+    color: var(--cyan);
+}
+
+/* ==========================================
+   6. RECENT ACTIVITY & QUICK SHORTCUTS
+   ========================================== */
+.activity-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    cursor: pointer;
+}
+
+.activity-row:last-child { border-bottom: none; }
+
+.act-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.act-badge {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 243, 255, 0.12);
+    border: 1px solid var(--cyan);
+    font-size: 15px;
+}
+
+.shortcuts-6-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.shortcut-btn {
+    background: rgba(3, 20, 42, 0.9);
+    border: 1px solid rgba(0, 243, 255, 0.3);
+    border-radius: 12px;
+    padding: 12px 6px;
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.shortcut-btn:active {
+    border-color: var(--cyan);
+    background: rgba(0, 243, 255, 0.15);
+}
+
+/* ==========================================
+   7. IRON MAN HUD DIAL + 3D WHEEL TIMER
+   ========================================== */
+.hud-container {
+    border: 2px solid rgba(0, 243, 255, 0.45);
+    border-radius: 24px;
+    padding: 15px;
+    background: radial-gradient(circle at center, #041a38 0%, #01060e 100%);
+    box-shadow: 0 0 30px rgba(0, 243, 255, 0.2), inset 0 0 20px rgba(0, 243, 255, 0.1);
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.hud-dial-outer {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    margin: 14px auto;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: conic-gradient(from -90deg, var(--cyan) 0deg, var(--blue) var(--hud-deg, 270deg), #071930 var(--hud-deg, 270deg), #071930 360deg);
+    box-shadow: 0 0 30px rgba(0, 243, 255, 0.45), inset 0 0 25px rgba(8, 123, 255, 0.5);
+}
+
+.hud-dial-outer::before {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border: 2px dashed rgba(0, 243, 255, 0.65);
+    border-radius: 50%;
+    animation: spinSlow 18s linear infinite;
+}
+
+.hud-dial-outer::after {
+    content: '▼';
+    position: absolute;
+    top: -16px;
+    color: var(--cyan);
+    font-size: 16px;
+    text-shadow: 0 0 10px var(--cyan);
+}
+
+.hud-dial-core {
+    width: 194px;
+    height: 194px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #051d3b 0%, #010712 80%);
+    border: 2px solid rgba(0, 243, 255, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    box-shadow: inset 0 0 25px rgba(0, 243, 255, 0.25);
+}
+
+.hud-main-digits {
+    font-family: 'Orbitron', monospace;
+    font-size: 40px;
+    font-weight: 900;
+    color: #fff;
+    text-shadow: 0 0 15px var(--cyan), 0 0 35px var(--blue);
+    margin: 4px 0;
+}
+
+.hud-ctrl-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.hud-action-btn {
+    flex: 1;
+    padding: 13px 6px;
+    border-radius: 14px;
+    background: rgba(3, 22, 46, 0.9);
+    border: 1px solid var(--cyan);
+    color: var(--cyan);
+    font-family: 'Orbitron', monospace;
+    font-size: 11px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 0 12px rgba(0, 243, 255, 0.2);
+}
+
+.hud-action-btn.center-round {
+    flex: 0 0 74px;
+    height: 74px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,243,255,0.28), rgba(2,14,30,0.95));
+    border: 2px solid var(--cyan);
+    color: #fff;
+    font-size: 11px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 22px rgba(0, 243, 255, 0.45);
+}
+
+.hud-action-btn.stop-red {
+    border-color: var(--red);
+    color: var(--red);
+    box-shadow: 0 0 12px rgba(255, 7, 58, 0.25);
+}
+
+.wheel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 900px;
+    margin: 14px 0;
+}
+
+.wheel-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 8px;
+}
+
+.wheel-num {
+    font-family: 'Orbitron', monospace;
+    font-size: 22px;
+    color: rgba(255, 255, 255, 0.25);
+    padding: 3px 8px;
+    cursor: pointer;
+}
+
+.wheel-num.active-num {
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--cyan);
+    text-shadow: 0 0 18px var(--cyan);
+    border-top: 1px solid rgba(0, 243, 255, 0.35);
+    border-bottom: 1px solid rgba(0, 243, 255, 0.35);
+    padding: 6px 10px;
+}
+
+.wheel-colon {
+    font-family: 'Orbitron', monospace;
+    font-size: 36px;
+    color: var(--cyan);
+    font-weight: bold;
+}
+
+.fullscreen-3d-mode {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vh !important;
+    height: 100vw !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    background: radial-gradient(circle at center, #031730 0%, #000000 100%) !important;
+    z-index: 999999 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    transform: rotate(90deg) translateY(-100%) !important;
+    transform-origin: top left !important;
+    padding: 20px !important;
+}
+
+.fullscreen-3d-mode .hud-main-digits {
+    font-size: 16vw !important;
+    color: var(--green) !important;
+    text-shadow: 0 10px 35px rgba(57, 255, 20, 0.65), 0 0 60px var(--cyan) !important;
+    transform: perspective(600px) rotateX(15deg);
+}
+
+/* ==========================================
+   8. SYLLABUS CHAPTERS, CONCEPT READER & QUIZ UI
+   ========================================== */
+.chapter-item {
+    background: rgba(3, 20, 42, 0.85);
+    border: 1px solid rgba(0, 243, 255, 0.3);
+    border-left: 5px solid var(--cyan);
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.chapter-item.done {
+    background: rgba(57, 255, 20, 0.16);
+    border-color: var(--green);
+    color: var(--green);
+}
+
+.concept-note-card {
+    background: rgba(1, 12, 26, 0.95);
+    border: 1px solid var(--cyan);
+    border-left: 4px solid var(--green);
+    border-radius: 14px;
+    padding: 16px;
+    margin-top: 10px;
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.12);
+}
+
+.concept-rule-box {
+    background: rgba(8, 123, 255, 0.12);
+    border: 1px dashed var(--cyan);
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin: 10px 0;
+    font-family: 'Orbitron', monospace;
+    font-size: 12px;
+    color: #ffbe0b;
+    line-height: 1.5;
+}
+
+.concept-example-box {
+    background: rgba(57, 255, 20, 0.08);
+    border-left: 3px solid var(--green);
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-top: 8px;
+    font-size: 13px;
+    color: #e0f7ff;
+}
+
+.quiz-opt-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: rgba(0, 243, 255, 0.08);
+    border: 1px solid rgba(0, 243, 255, 0.4);
+    color: #fff;
+    padding: 13px 14px;
+    margin-top: 9px;
+    border-radius: 10px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.quiz-opt-btn:active {
+    background: rgba(57, 255, 20, 0.25);
+    border-color: var(--green);
+}
+
+.input-cyber {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    background: rgba(0, 8, 18, 0.85);
+    border: 1px solid var(--cyan);
+    border-radius: 10px;
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 14px;
+}
+
+.btn-cyber {
+    width: 100%;
+    padding: 13px;
+    border-radius: 10px;
+    border: 1px solid var(--cyan);
+    background: linear-gradient(90deg, rgba(8,123,255,0.35), rgba(0,243,255,0.2));
+    color: var(--cyan);
+    font-family: 'Orbitron', monospace;
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+/* ==========================================
+   9. BOTTOM NAVIGATION BAR WITH CENTER [K]
+   ========================================== */
+.bottom-dock {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: rgba(2, 10, 22, 0.96);
+    border-top: 1px solid rgba(0, 243, 255, 0.35);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 9000;
+    box-shadow: 0 -6px 25px rgba(0, 243, 255, 0.15);
+}
+
+.dock-item {
+    background: none;
+    border: none;
+    color: #6c8eae;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    flex: 1;
+}
+
+.dock-item.active {
+    color: var(--cyan);
+    text-shadow: 0 0 8px var(--cyan);
+}
+
+.dock-icon {
+    font-size: 20px;
+    margin-bottom: 2px;
+}
+
+.dock-center-k {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #087bff 0%, #021024 85%);
+    border: 2px solid var(--cyan);
+    color: #fff;
+    font-family: 'Orbitron', monospace;
+    font-size: 22px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-16px);
+    box-shadow: 0 0 20px var(--cyan), inset 0 0 10px #fff;
+    cursor: pointer;
+}
+
+.page { display: none; }
+.page.active-page { display: block; }
+</style>
+</head>
+<body>
+
+<!-- ==========================================
+     TOP HEADER BAR
+     ========================================== -->
+<header class="kos-topbar" id="topHeaderBar">
+    <div class="kos-brand-left" onclick="openPage('homePage', 0)">
+        <div class="kos-k-logo">K</div>
+        <div class="kos-brand-text">
+            <h1>KANISHK OS</h1>
+            <p>STUDY • FOCUS • ACHIEVE</p>
+        </div>
+    </div>
+    <div class="kos-top-badges">
+        <div class="kos-pill offline">● Offline</div>
+        <div class="kos-pill pro">👑 Pro</div>
+        <button class="kos-gear-btn" onclick="openPage('morePage', 5)">⚙️</button>
+    </div>
+</header>
+
+<!-- ==========================================
+     PAGE 1: HOME DASHBOARD
+     ========================================== -->
+<div id="homePage" class="page active-page">
+
+    <!-- HERO MOUNTAIN BANNER + JARVIS -->
+    <div class="hero-wrapper">
+        <div class="hero-grid">
+            <div>
+                <div class="greeting-row">
+                    <span class="sun-icon">☀️</span>
+                    <div>
+                        <p class="greeting-title" id="greetText">Good Morning</p>
+                        <h2 class="greeting-name">Kanishk</h2>
+                    </div>
+                </div>
+                <p class="hero-quote">"Discipline today builds the freedom of tomorrow."</p>
+                <p class="hero-author">— Kanishk OS • Thunder Striker XI Captain</p>
+                <div class="hero-clock-strip">
+                    <span id="liveSystemClock" style="color:#fff;">00:00:00</span>
+                    <span style="color:#ffbe0b;">|</span>
+                    <span id="cglDaysLeft" style="color:#ff073a; font-weight:bold;">CGL TARGET</span>
+                </div>
+            </div>
+
+            <!-- JARVIS AI Study Assistant Box -->
+            <div class="jarvis-box">
+                <div class="jarvis-head">
+                    <div class="jarvis-badge">
+                        <div class="jarvis-orb"></div>
+                        <div>
+                            <span class="jarvis-name">JARVIS AI</span>
+                            <span class="jarvis-sub">Study Assistant</span>
+                        </div>
+                    </div>
+                    <span style="color:var(--cyan); font-size:14px;">ılı.lı</span>
+                </div>
+                <p class="jarvis-msg" id="jarvisDynamicTip">
+                    Ready to conquer today? Which subject shall we focus on, Kaptaan?
+                </p>
+                <div class="jarvis-actions">
+                    <button class="jarvis-mini-btn" onclick="jarvisNextAdvice()">💡 NEW TIP</button>
+                    <button class="jarvis-mini-btn" onclick="openPage('pdfBookPage', 1)">📘 CONCEPTS</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4 METRIC CARDS -->
+    <div class="metrics-row">
+        <div class="metric-card" onclick="openPage('missionsPage', 5)">
+            <div class="metric-top">
+                <div class="metric-icon">🎯</div>
+                <div class="metric-info">
+                    <span>Daily Target</span>
+                    <strong id="metricTargetVal">12 / 50</strong>
+                </div>
+            </div>
+            <div class="metric-bar-bg">
+                <div class="metric-bar-fill" id="metricTargetBar" style="width: 24%;"></div>
+            </div>
+            <div class="metric-foot" id="metricTargetPct">24% Completed</div>
+        </div>
+
+        <div class="metric-card" onclick="openPage('timerPage', 2)">
+            <div class="metric-top">
+                <div class="metric-icon" style="border-color:#00f3ff;">🕒</div>
+                <div class="metric-info">
+                    <span>Study Time</span>
+                    <strong id="metricStudyTime">2h 35m</strong>
+                </div>
+            </div>
+            <div class="metric-foot">↑ +18% vs Yesterday</div>
+        </div>
+
+        <div class="metric-card" onclick="openPage('testsPage', 2)">
+            <div class="metric-top">
+                <div class="metric-icon" style="border-color:#39ff8b; color:#39ff8b;">✔</div>
+                <div class="metric-info">
+                    <span>Accuracy</span>
+                    <strong id="metricAccVal">82%</strong>
+                </div>
+            </div>
+            <div class="metric-foot">↑ Target: 90%+</div>
+        </div>
+
+        <div class="metric-card" onclick="openPage('analyticsPage', 4)">
+            <div class="metric-top">
+                <div class="metric-icon" style="border-color:#ffbe0b;">🔥</div>
+                <div class="metric-info">
+                    <span>Streak</span>
+                    <strong id="metricStreakVal">5 Days</strong>
+                </div>
+            </div>
+            <div class="metric-foot" style="color:#ffbe0b;">Keep Going, Kaptaan!</div>
+        </div>
+    </div>
+
+    <!-- SELECT SUBJECT (4 COLORED CARDS) -->
+    <div class="section-card">
+        <div class="section-head">
+            <h3>📚 Select Subject</h3>
+            <span class="view-all-link" onclick="openPage('subjectsPage', 1)">View All →</span>
+        </div>
+        <div class="subjects-4-grid">
+            <div class="subj-box math" onclick="openSubjectDetail('math')">
+                <div class="subj-icon-big">➗</div>
+                <h4>Math</h4>
+                <p>31 Chapters + Bilingual Quiz</p>
+                <div class="subj-prog-row">
+                    <div class="subj-prog-bar"><div class="subj-prog-fill" id="bar_math" style="width:68%;"></div></div>
+                    <span class="subj-prog-txt" id="pct_math">68%</span>
+                </div>
+            </div>
+
+            <div class="subj-box reasoning" onclick="openSubjectDetail('reasoning')">
+                <div class="subj-icon-big">🧠</div>
+                <h4>Reasoning</h4>
+                <p>42 Chapters + Bilingual PYQ</p>
+                <div class="subj-prog-row">
+                    <div class="subj-prog-bar"><div class="subj-prog-fill" id="bar_reasoning" style="width:54%;"></div></div>
+                    <span class="subj-prog-txt" id="pct_reasoning">54%</span>
+                </div>
+            </div>
+
+            <div class="subj-box english" onclick="openSubjectDetail('english')">
+                <div class="subj-icon-big">📖</div>
+                <h4>English</h4>
+                <p>All Grammar Concepts + Vocab</p>
+                <div class="subj-prog-row">
+                    <div class="subj-prog-bar"><div class="subj-prog-fill" id="bar_english" style="width:48%;"></div></div>
+                    <span class="subj-prog-txt" id="pct_english">48%</span>
+                </div>
+            </div>
+
+            <div class="subj-box gs" onclick="openSubjectDetail('gs')">
+                <div class="subj-icon-big">🌐</div>
+                <h4>GS Master</h4>
+                <p>History, Polity, Sci & Static</p>
+                <div class="subj-prog-row">
+                    <div class="subj-prog-bar"><div class="subj-prog-fill" id="bar_gs" style="width:42%;"></div></div>
+                    <span class="subj-prog-txt" id="pct_gs">42%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEXT BEST ACTION CARD -->
+    <div class="next-action-card">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span style="color:#ffbe0b; font-family:'Orbitron'; font-size:12px; font-weight:bold;">⚡ Next Best Action</span>
+            <span style="font-size:16px;">🎯</span>
+        </div>
+        <h3 style="margin:8px 0 4px 0; font-size:16px; color:#fff;" id="nbaTopicTitle">English Grammar — Complete Concept Book</h3>
+        <div style="font-size:13px; color:#ff2a85; font-weight:700;">Target Accuracy: 90%+</div>
+        <div style="font-size:12px; color:var(--cyan); margin-top:2px;">Chapter-Wise Rules, Structures & PYQs Ready</div>
+        <button class="nba-btn" onclick="openPage('pdfBookPage', 1)">OPEN CONCEPT BOOK →</button>
+    </div>
+
+    <!-- FOCUS & TOOLS (5 TILES) -->
+    <div class="section-card">
+        <div class="section-head">
+            <h3>🎯 Focus & Tools</h3>
+        </div>
+        <div class="tools-5-grid">
+            <div class="tool-tile t-timer" onclick="openTimerWithMode('hud')">
+                <div class="tool-tile-icon">⏱️</div>
+                <div class="tool-tile-name">Timer</div>
+                <div class="tool-tile-sub">25:00</div>
+            </div>
+            <div class="tool-tile t-watch" onclick="openTimerWithMode('wheel')">
+                <div class="tool-tile-icon">⏳</div>
+                <div class="tool-tile-name">3D Wheel</div>
+                <div class="tool-tile-sub">00:00.00</div>
+            </div>
+            <div class="tool-tile t-notes" onclick="openPage('notesPage', 3)">
+                <div class="tool-tile-icon">📝</div>
+                <div class="tool-tile-name">Notes</div>
+                <div class="tool-tile-sub">Quick Save</div>
+            </div>
+            <div class="tool-tile t-cal" onclick="openPage('missionsPage', 5)">
+                <div class="tool-tile-icon">📅</div>
+                <div class="tool-tile-name">Plan</div>
+                <div class="tool-tile-sub">Schedule</div>
+            </div>
+            <div class="tool-tile t-vault" onclick="openPage('vaultPage', 5)">
+                <div class="tool-tile-icon">🔒</div>
+                <div class="tool-tile-name">Error Vault</div>
+                <div class="tool-tile-sub" id="vaultCountBadge">Mistakes</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SMALL STEPS QUOTE + OVERALL PROGRESS RING -->
+    <div class="quote-ring-card">
+        <div>
+            <h3 style="margin:0 0 6px 0; font-size:15px; line-height:1.35; color:#fff;">
+                Small steps every day lead to big results.
+            </h3>
+            <span style="font-size:11px; color:var(--cyan);">— Kanishk OS • जब ज़िद जीत की हो जाए, तो घाव मायने नहीं रखते!</span>
+        </div>
+        <div style="text-align:center;">
+            <div class="ring-circle" id="overallRingCircle">
+                <div class="ring-inner" id="overallRingText">0%</div>
+            </div>
+            <div style="font-size:10px; color:#fff; margin-top:4px;">Overall Progress</div>
+        </div>
+    </div>
+
+    <!-- RECENT ACTIVITY -->
+    <div class="section-card">
+        <div class="section-head">
+            <h3>🕒 Recent Activity</h3>
+        </div>
+        <div id="recentActivityList">
+            <div class="activity-row" onclick="startQuizModule('math')">
+                <div class="act-left">
+                    <div class="act-badge">➗</div>
+                    <div>
+                        <div style="color:#fff; font-weight:700; font-size:14px;">Math - Percentage & Algebra</div>
+                        <div style="color:#39ff8b; font-size:11px;">Completed • Bilingual Set</div>
+                    </div>
+                </div>
+                <span style="font-family:'Orbitron'; font-size:12px; color:var(--cyan);">500+ Qs ›</span>
+            </div>
+            <div class="activity-row" onclick="startQuizModule('reasoning')">
+                <div class="act-left">
+                    <div class="act-badge" style="border-color:#c77dff;">🧠</div>
+                    <div>
+                        <div style="color:#fff; font-weight:700; font-size:14px;">Reasoning - Coding & Series</div>
+                        <div style="color:#39ff8b; font-size:11px;">Completed • Bilingual PYQ</div>
+                    </div>
+                </div>
+                <span style="font-family:'Orbitron'; font-size:12px; color:#c77dff;">500+ Qs ›</span>
+            </div>
+            <div class="activity-row" onclick="openPage('pdfBookPage', 1)">
+                <div class="act-left">
+                    <div class="act-badge" style="border-color:#ffbe0b;">📘</div>
+                    <div>
+                        <div style="color:#fff; font-weight:700; font-size:14px;">English - Master Concept Book</div>
+                        <div style="color:#ffbe0b; font-size:11px;">Chapter-Wise • All Concepts & Rules</div>
+                    </div>
+                </div>
+                <span style="font-family:'Orbitron'; font-size:12px; color:#ffbe0b;">OPEN ›</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- QUICK SHORTCUTS (6 BUTTONS) -->
+    <div class="section-card">
+        <div class="section-head">
+            <h3>⚡ Quick Shortcuts</h3>
+        </div>
+        <div class="shortcuts-6-grid">
+            <button class="shortcut-btn" onclick="openPage('subjectsPage', 1)"><span>📖</span>All Subjects</button>
+            <button class="shortcut-btn" onclick="openPage('testsPage', 2)"><span>📋</span>500+ Quizzes</button>
+            <button class="shortcut-btn" onclick="openPage('pdfBookPage', 1)"><span>📘</span>Concept Book</button>
+            <button class="shortcut-btn" onclick="openPage('analyticsPage', 4)"><span>📊</span>Performance</button>
+            <button class="shortcut-btn" onclick="openPage('missionsPage', 5)"><span>🎯</span>Study Plan</button>
+            <button class="shortcut-btn" onclick="openPage('vaultPage', 5)"><span>🧠</span>Error Vault</button>
+        </div>
+    </div>
+
+</div>
+
+<!-- ==========================================
+     PAGE 2: ALL SUBJECTS & SYLLABUS TRACKER
+     ========================================== -->
+<div id="subjectsPage" class="page">
+    <div class="section-card">
+        <h2 style="margin:0 0 6px 0; font-size:18px; color:var(--cyan);">📚 COMPLETE SSC CGL SYLLABUS</h2>
+        <p style="margin:0 0 12px 0; font-size:12px; color:#9bcce5;">Tap any English Concept below to read its complete chapter-wise rules & examples!</p>
+
+        <div class="subjects-4-grid" style="margin-bottom:14px;">
+            <button class="btn-cyber" style="margin:0;" onclick="renderSubjectChapters('math')">➗ MATHS (31)</button>
+            <button class="btn-cyber" style="margin:0;" onclick="renderSubjectChapters('reasoning')">🧠 REASONING (42)</button>
+            <button class="btn-cyber" style="margin:0;" onclick="renderSubjectChapters('english')">📖 ENGLISH CONCEPTS</button>
+            <button class="btn-cyber" style="margin:0;" onclick="renderSubjectChapters('gs')">🌍 GS MASTER (60+)</button>
+        </div>
+
+        <button class="btn-cyber" style="border-color:#39ff14; color:#39ff14;" onclick="openPage('pdfBookPage', 1)">
+            📘 OPEN CHAPTER-WISE ENGLISH GRAMMAR CONCEPT READER
+        </button>
+    </div>
+
+    <div class="section-card">
+        <div class="section-head">
+            <h3 id="activeSubjectHeading">➗ MATHS CHAPTERS</h3>
+            <span class="view-all-link" onclick="startQuizModule(currentSyllabusSubj)">▶ Play Quiz</span>
+        </div>
+        <div id="chaptersListContainer"></div>
+    </div>
+</div>
+
+<!-- ==========================================
+     PAGE 3: ENGLISH GRAMMAR CONCEPT BOOK (ALL CONCEPTS CHAPTER-WISE)
+     ========================================== -->
+<div id="pdfBookPage" class="page">
+    <div class="section-card" style="border-color:#39ff14;">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span style="color:#39ff14; font-family:'Orbitron'; font-size:10px;">KANISHK OS • MASTER EDITION 2026-27</span>
+            <span style="color:#ffbe0b; font-size:11px; font-weight:bold;">100% Exam Oriented</span>
+        </div>
+        <h2 style="margin:6px 0; font-size:18px; color:#fff;">📘 CONCEPT BOOK OF ENGLISH GRAMMAR</h2>
+        <p style="margin:0 0 10px 0; font-size:12px; color:var(--cyan);">Complete Chapter-Wise Rules, Structures, Tables & Solved Examples • "जब ज़िद जीत की हो जाए, तो घाव मायने नहीं रखते।"</p>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+            <button class="btn-cyber" style="border-color:#39ff14; color:#39ff14; margin:0;" onclick="startQuizModule('english_pdf')">🎯 SOLVE CONCEPT QUIZ</button>
+            <button class="btn-cyber" style="border-color:#ffbe0b; color:#ffbe0b; margin:0;" onclick="openSubjectDetail('english')">📚 CHAPTER CHECKLIST</button>
+        </div>
+    </div>
+
+    <!-- Chapter-Wise Concept Reader / Search / Navigation -->
+    <div class="section-card">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <h3 style="margin:0;">📖 Select Chapter / Concept</h3>
+            <span id="conceptPosIndicator" style="font-family:'Orbitron'; font-size:11px; color:#39ff8b;">1 / 58</span>
+        </div>
+
+        <input type="text" id="conceptSearchInput" class="input-cyber" placeholder="🔎 Search any concept (e.g. No sooner, Preposition, Modals, Conditional)..." oninput="filterConceptDropdown(this.value)">
+
+        <select id="pdfConceptSelect" class="input-cyber" onchange="displayPdfConceptNote(this.value)"></select>
+
+        <div style="display:flex; gap:8px; margin-bottom:10px;">
+            <button class="btn-cyber" style="margin:0; padding:10px;" onclick="stepConcept(-1)">◀ PREV CHAPTER</button>
+            <button class="btn-cyber" style="margin:0; padding:10px; border-color:#39ff14; color:#39ff14;" onclick="stepConcept(1)">NEXT CHAPTER ▶</button>
+        </div>
+
+        <div id="pdfConceptViewer" class="concept-note-card"></div>
+    </div>
+</div>
+
+<!-- ==========================================
+     PAGE 4: 500+ BILINGUAL QUIZ & MOCK TEST ENGINE
+     ========================================== -->
+<div id="testsPage" class="page">
+    <div class="section-card">
+        <h2 style="margin:0 0 6px 0; font-size:17px; color:var(--cyan);">🎯 500+ BILINGUAL QUIZ ENGINE</h2>
+        <p style="margin:0 0 12px 0; font-size:12px; color:#9bcce5;">Maths, Reasoning & GS in Bilingual (English + Hindi) • English Grammar Concept PYQs</p>
+
+        <div class="subjects-4-grid">
+            <button class="btn-cyber" style="margin:0; border-color:#2ec4ff; color:#2ec4ff;" onclick="startQuizModule('math')">➗ MATH 500+ (Bilingual)</button>
+            <button class="btn-cyber" style="margin:0; border-color:#c77dff; color:#c77dff;" onclick="startQuizModule('reasoning')">🧠 REASON 500+ (Bilingual)</button>
+            <button class="btn-cyber" style="margin:0; border-color:#39ff8b; color:#39ff8b;" onclick="startQuizModule('english_pdf')">📘 ENGLISH CONCEPT PYQs</button>
+            <button class="btn-cyber" style="margin:0; border-color:#ffbe0b; color:#ffbe0b;" onclick="startQuizModule('gs')">🌍 GS 500+ (Bilingual)</button>
+        </div>
+    </div>
+
+    <!-- Active Question Card -->
+    <div id="quizPlayBox" class="section-card" style="border-left:4px solid var(--cyan);">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span id="quizBadgeTitle" style="font-family:'Orbitron'; font-size:11px; color:var(--cyan);">📝 QUIZ ENGINE</span>
+            <span id="quizCounterText" style="font-family:'Orbitron'; font-size:11px; color:#39ff8b;">Q: 1 / 500 | Score: 0</span>
+        </div>
+        <div id="quizQuestionText" style="font-size:16px; font-weight:700; color:#fff; line-height:1.45; margin:12px 0;"></div>
+        <div id="quizOptionsBox"></div>
+        <div id="quizSolutionBox" style="display:none; margin-top:12px; padding:12px; border-radius:10px; background:rgba(57,255,20,0.1); border:1px solid #39ff8b; font-size:13px; color:#eafaff;"></div>
+        <div style="display:flex; gap:8px; margin-top:14px;">
+            <button class="btn-cyber" style="margin:0;" onclick="nextQuizQuestion()">NEXT QUESTION →</button>
+            <button class="btn-cyber" style="margin:0; border-color:#ffbe0b; color:#ffbe0b;" onclick="generateInfiniteQuestion()">⚡ INFINITE NEW Q</button>
+        </div>
+    </div>
+</div>
+
+<!-- ==========================================
+     PAGE 5: DUAL TIMER (IRON MAN HUD + 3D WHEEL)
+     ========================================== -->
+<div id="timerPage" class="page">
+
+    <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:12px;">
+        <div style="display:flex; gap:6px; flex:1;">
+            <button id="btnStyleHud" class="jarvis-mini-btn" style="padding:8px; font-size:10px; background:var(--cyan); color:#000;" onclick="switchTimerDesign('hud')">🛡️ IRON MAN HUD</button>
+            <button id="btnStyleWheel" class="jarvis-mini-btn" style="padding:8px; font-size:10px;" onclick="switchTimerDesign('wheel')">🎡 3D DRUM WHEEL</button>
+        </div>
+        <button onclick="toggle3DFullScreen()" style="background:rgba(57,255,20,0.15); border:1px solid #39ff14; color:#39ff14; padding:8px 12px; border-radius:12px; font-family:'Orbitron'; font-size:10px; font-weight:bold; cursor:pointer;">
+            🔄 3D FULL SCREEN
+        </button>
+    </div>
+
+    <div id="rotatableTimerWrapper" class="hud-container">
+        <button id="exit3DFsBtn" onclick="toggle3DFullScreen()" style="display:none; position:absolute; top:16px; right:20px; background:#ff073a; color:#fff; border:none; padding:10px 18px; border-radius:20px; font-family:'Orbitron'; font-weight:bold; z-index:100001; cursor:pointer;">
+            ✖ EXIT 3D FULLSCREEN
+        </button>
+
+        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(0,243,255,0.25); padding-bottom:8px; margin-bottom:10px;" class="hide-in-fs">
+            <div style="display:flex; align-items:center; gap:8px;">
+                <span style="color:var(--cyan); font-family:'Orbitron'; font-size:12px; font-weight:900;">🎯 FOCUS TIMER</span>
+                <span style="font-size:10px; color:#39ff8b;">● POMODORO MODE</span>
+            </div>
+            <div style="display:flex; gap:6px;">
+                <button id="hudSubTimerBtn" class="jarvis-mini-btn" onclick="setClockFuncMode('timer')">⏳ TIMER</button>
+                <button id="hudSubWatchBtn" class="jarvis-mini-btn" onclick="setClockFuncMode('watch')">⏱️ STOPWATCH</button>
+            </div>
+        </div>
+
+        <!-- DESIGN A: IRON MAN CIRCULAR HUD DIAL -->
+        <div id="designHudBox">
+            <div style="display:grid; grid-template-columns:1fr 2fr 1fr; gap:6px; align-items:center;">
+                <div class="hide-in-fs" style="background:rgba(0,30,60,0.4); border:1px solid rgba(0,243,255,0.25); border-radius:12px; padding:8px 6px; text-align:center;">
+                    <div style="font-size:9px; color:var(--cyan); font-weight:bold; margin-bottom:6px;">PRESETS</div>
+                    <button class="jarvis-mini-btn" style="width:100%; margin-bottom:4px;" onclick="setHudMinutes(15)">15 MIN</button>
+                    <button class="jarvis-mini-btn" style="width:100%; margin-bottom:4px;" onclick="setHudMinutes(25)">25 MIN</button>
+                    <button class="jarvis-mini-btn" style="width:100%; margin-bottom:6px;" onclick="setHudMinutes(50)">50 MIN</button>
+                    <div style="font-size:8px; color:#ffbe0b; line-height:1.25;">SMALL STEPS MAKE BIG RESULTS</div>
+                </div>
+
+                <div class="hud-dial-outer" id="hudConicDial">
+                    <div class="hud-dial-core">
+                        <div style="font-family:'Orbitron'; font-size:9px; color:var(--cyan); letter-spacing:2px;" id="hudCenterLabel">FOCUS TIME</div>
+                        <div class="hud-main-digits" id="hudMainTime">25:00</div>
+                        <div style="font-size:8px; color:#75bddd; letter-spacing:1.5px;" id="hudCenterUnits">MINUTES | SECONDS</div>
+                        <div style="font-size:9px; color:#39ff8b; margin-top:6px; font-weight:bold;" id="hudCenterStatus">SYSTEM READY</div>
+                    </div>
+                </div>
+
+                <div class="hide-in-fs" style="background:rgba(0,30,60,0.4); border:1px solid rgba(0,243,255,0.25); border-radius:12px; padding:8px 6px; font-size:10px;">
+                    <div style="font-size:8px; color:var(--cyan); font-weight:bold; text-align:center; margin-bottom:6px;">POMODORO</div>
+                    <div style="line-height:1.6; color:#fff;">
+                        <span style="color:var(--cyan); font-weight:bold;">25</span> Focus<br>
+                        <span style="color:#39ff8b; font-weight:bold;">05</span> Break<br>
+                        <span style="color:var(--cyan); font-weight:bold;">25</span> Focus<br>
+                        <span style="color:#39ff8b; font-weight:bold;">05</span> Break<br>
+                        <span style="color:var(--cyan); font-weight:bold;">25</span> Focus
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DESIGN B: 3D CYLINDER DRUM WHEEL PICKER -->
+        <div id="designWheelBox" style="display:none;">
+            <div class="wheel-container">
+                <div class="wheel-col">
+                    <div class="wheel-num" id="wh_h_m1" onclick="adjustWheelTime('h', -1)">23</div>
+                    <div class="wheel-num active-num" id="wh_h_0" onclick="adjustWheelTime('h', 1)">00</div>
+                    <div class="wheel-num" id="wh_h_p1" onclick="adjustWheelTime('h', 1)">01</div>
+                </div>
+                <div class="wheel-colon">:</div>
+                <div class="wheel-col">
+                    <div class="wheel-num" id="wh_m_m1" onclick="adjustWheelTime('m', -1)">24</div>
+                    <div class="wheel-num active-num" id="wh_m_0" onclick="adjustWheelTime('m', 1)">25</div>
+                    <div class="wheel-num" id="wh_m_p1" onclick="adjustWheelTime('m', 1)">26</div>
+                </div>
+                <div class="wheel-colon">:</div>
+                <div class="wheel-col">
+                    <div class="wheel-num" id="wh_s_m1" onclick="adjustWheelTime('s', -5)">59</div>
+                    <div class="wheel-num active-num" id="wh_s_0" onclick="adjustWheelTime('s', 5)">00</div>
+                    <div class="wheel-num" id="wh_s_p1" onclick="adjustWheelTime('s', 5)">01</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hud-ctrl-bar">
+            <button class="hud-action-btn" onclick="masterClockReset()">⟳ RESET</button>
+            <button class="hud-action-btn center-round" id="masterPlayBtn" onclick="masterClockToggle()">
+                <span style="font-size:16px;">▶</span>
+                <span style="font-size:8px; margin-top:2px;">START</span>
+            </button>
+            <button class="hud-action-btn stop-red" onclick="masterClockStop()">■ STOP</button>
+        </div>
+
+        <button id="lapRecordBtn" class="btn-cyber" style="display:none; margin-top:12px;" onclick="recordStopwatchLap()">＋ RECORD LAP</button>
+        <div id="lapRecordsList" style="margin-top:8px; max-height:110px; overflow-y:auto;"></div>
+    </div>
+</div>
+
+<!-- ==========================================
+     PAGE 6: QUICK NOTES MODULE
+     ========================================== -->
+<div id="notesPage" class="page">
+    <div class="section-card">
+        <h2>📝 QUICK REVISION NOTES</h2>
+        <input type="text" id="noteTitleInp" class="input-cyber" placeholder="Note Title (e.g. Trigonometry Formula / Grammar Rule)...">
+        <textarea id="noteBodyInp" class="input-cyber" rows="3" placeholder="Write important shortcut or rule here..."></textarea>
+        <button class="btn-cyber" onclick="saveUserNote()">💾 SAVE NOTE</button>
+    </div>
+    <div class="section-card">
+        <h3>📂 Saved Notes</h3>
+        <div id="savedNotesContainer"></div>
+    </div>
+</div>
+
+<!-- ==========================================
+     PAGE 7: ANALYTICS & MOCK SCORECARD
+     ========================================== -->
+<div id="analyticsPage" class="page">
+    <div class="section-card">
+        <h2>📊 SSC CGL MOCK ANALYTICS</h2>
+        <input type="text" id="mockNameInp" class="input-cyber" placeholder="Mock Test Name (e.g. Tier-1 Full Mock 12)...">
+        <input type="number" id="mockScoreInp" class="input-cyber" placeholder="Marks Scored (Out of 200, e.g. 146.5)...">
+        <button class="btn-cyber" onclick="saveMockRecord()">📈 LOG MOCK SCORE</button>
+    </div>
+    <div class="section-card">
+        <h3>🏆 Logged Mock Scores</h3>
+        <div id="mockHistoryContainer"></div>
+    </div>
+</div>
+
+<!-- ==========================================
+     PAGE 8: ERROR VAULT (MISTAKE DETECTOR)
+     ========================================== -->
+<div id="vaultPage" class="page">
+    <div class="section-card" style="border-color:var(--red);">
+        <h2 style="color:var(--red);">🔒 ERROR VAULT (MISTAKE TRACKER)</h2>
+        <input type="text" id="errTopicInp" class="input-cyber" style="border-color:var(--red);" placeholder="Subject / Topic (e.g. Subject-Verb Agreement)...">
+        <input type="text" id="errDetailInp" class="input-cyber" style="border-color:var(--red);" placeholder="What mistake did you make?...">
+        <button class="btn-cyber" style="border-color:var(--red); color:var(--red);" onclick="saveErrorVault()">＋ ADD TO ERROR VAULT</button>
+    </div>
+    <div class="section-card">
+        <h3>⚠️ Saved Mistakes for Revision</h3>
+        <div id="errorVaultContainer"></div>
+    </div>
+</div>
+
+<!-- ==========================================
+     PAGE 9: DAILY MISSIONS & STUDY PLANNER
+     ========================================== -->
+<div id="missionsPage" class="page">
+    <div class="section-card">
+        <h2>🎯 DAILY TARGET & STUDY PLAN</h2>
+        <div style="display:flex; gap:8px;">
+            <input type="text" id="planTaskInp" class="input-cyber" style="margin:0;" placeholder="Add target (e.g. 50 Math Qs + Concept 1 to 10)...">
+            <button class="btn-cyber" style="width:90px; margin:0;" onclick="addStudyMission()">＋ ADD</button>
+        </div>
+        <div id="studyMissionsContainer" style="margin-top:14px;"></div>
+    </div>
+</div>
+
+<!-- ==========================================
+     PAGE 10: MORE / SYSTEM SETTINGS
+     ========================================== -->
+<div id="morePage" class="page">
+    <div class="section-card">
+        <h2>⚙️ KANISHK OS SYSTEM HUB</h2>
+        <p style="font-size:13px; color:#9bcce5;">Commander: <strong>Kanishk Kumar</strong> (Captain, Thunder Striker XI)</p>
+        <div class="shortcuts-6-grid" style="margin-top:12px;">
+            <button class="shortcut-btn" onclick="openPage('vaultPage', 5)"><span>🔒</span>Error Vault</button>
+            <button class="shortcut-btn" onclick="openPage('missionsPage', 5)"><span>📅</span>Daily Plan</button>
+            <button class="shortcut-btn" onclick="openPage('pdfBookPage', 1)"><span>📘</span>Concept Book</button>
+        </div>
+    </div>
+</div>
+
+<!-- ==========================================
+     BOTTOM NAVIGATION BAR
+     ========================================== -->
+<nav class="bottom-dock" id="bottomNavDock">
+    <button class="dock-item active" onclick="openPage('homePage', 0)">
+        <span class="dock-icon">🏠</span>Home
+    </button>
+    <button class="dock-item" onclick="openPage('subjectsPage', 1)">
+        <span class="dock-icon">📖</span>Subjects
+    </button>
+    <button class="dock-item" onclick="openPage('testsPage', 2)">
+        <span class="dock-icon">📋</span>Tests
+    </button>
+
+    <div class="dock-center-k" onclick="openPage('timerPage', 2)">K</div>
+
+    <button class="dock-item" onclick="openPage('notesPage', 3)">
+        <span class="dock-icon">📝</span>Notes
+    </button>
+    <button class="dock-item" onclick="openPage('analyticsPage', 4)">
+        <span class="dock-icon">📊</span>Analytics
+    </button>
+    <button class="dock-item" onclick="openPage('morePage', 5)">
+        <span class="dock-icon">⊞</span>More
+    </button>
+</nav>
+
+<!-- ==========================================
+     JAVASCRIPT MASTER ENGINE
+     ========================================== -->
+<script>
+// 1. SAFE LOCAL STORAGE ENGINE
+var memoryFallback = {};
+function getStore(k) {
+    try { return localStorage.getItem(k); } catch(e) { return memoryFallback[k] || null; }
+}
+function setStore(k, v) {
+    try { localStorage.setItem(k, v); } catch(e) { memoryFallback[k] = v; }
+}
+
+// 2. PAGE NAVIGATION
+function openPage(pageId, dockIdx) {
+    var pages = document.getElementsByClassName('page');
+    for (var i = 0; i < pages.length; i++) {
+        pages[i].classList.remove('active-page');
+    }
+    var target = document.getElementById(pageId);
+    if (target) target.classList.add('active-page');
+
+    var items = document.getElementsByClassName('dock-item');
+    for (var j = 0; j < items.length; j++) {
+        items[j].classList.remove('active');
+    }
+    if (typeof dockIdx === 'number' && items[dockIdx]) {
+        items[dockIdx].classList.add('active');
+    }
+    window.scrollTo(0, 0);
+}
+
+// 3. LIVE CLOCK, GREETING & JARVIS TIPS
+var jarvisTips = [
+    "Ready to conquer today? Let's solve 25 Bilingual Math questions!",
+    "Grammar Rule: 'No sooner' is always followed by 'than', never 'when'!",
+    "Hardly and Scarcely take 'when', and inversion (Had + Sub + V3) is used!",
+    "Comprise, Discuss, Investigate, Resemble never take prepositions in Active Voice!",
+    "Keep pushing Kaptaan! Thunder Striker XI spirit in SSC CGL preparation!"
+];
+var tipIdx = 0;
+function jarvisNextAdvice() {
+    tipIdx = (tipIdx + 1) % jarvisTips.length;
+    document.getElementById('jarvisDynamicTip').innerText = jarvisTips[tipIdx];
+}
+
+function updateLiveSystemClock() {
+    var now = new Date();
+    var hrs = now.getHours();
+    var greet = hrs < 12 ? "Good Morning" : (hrs < 17 ? "Good Afternoon" : "Good Evening");
+    var gt = document.getElementById('greetText');
+    if (gt) gt.innerText = greet;
+
+    var h12 = hrs % 12 || 12;
+    var m = now.getMinutes();
+    var s = now.getSeconds();
+    var ampm = hrs >= 12 ? "PM" : "AM";
+    var timeStr = (h12 < 10 ? "0" + h12 : h12) + ":" + (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s) + " " + ampm;
+    var clk = document.getElementById('liveSystemClock');
+    if (clk) clk.innerText = timeStr;
+
+    var examDate = new Date("July 1, 2027 00:00:00").getTime();
+    var diff = examDate - now.getTime();
+    var dLeft = Math.max(0, Math.floor(diff / (1000 * 60 * 60 * 24)));
+    var cd = document.getElementById('cglDaysLeft');
+    if (cd) cd.innerText = dLeft + " DAYS TO CGL";
+}
+setInterval(updateLiveSystemClock, 1000);
+
+// ============================================================================
+// 4. COMPLETE CHAPTER-WISE ENGLISH GRAMMAR CONCEPT BOOK (ALL CONCEPTS)
+// ============================================================================
+var pdfConceptsData = [
+    {
+        title: "Concept 1: Parts of Speech",
+        rule: "8 Parts of Speech: Noun, Pronoun, Verb, Adjective, Adverb, Preposition, Conjunction, Interjection.",
+        body: "<b>1. Noun:</b> Names a person, place, thing, or idea (Dehradun, Teacher, Happiness, Gold, Team).<br><b>2. Pronoun:</b> Used in place of a noun to avoid repetition (I, You, We, It, He, She, They).<br><b>3. Verb:</b> Shows an action, occurrence, or state of being (Run, Love, Fly, Smell, Happen).<br><b>4. Adjective:</b> Describes or gives more info about a noun/pronoun (Smart, Five, Beautiful, Tall).<br><b>5. Adverb:</b> Modifies a verb, adjective, another adverb, or whole sentence (Quickly, Yesterday, Slowly, Loudly).<br><b>6. Preposition:</b> Shows relationship between a noun/pronoun and another word (In, On, At, With, Between).<br><b>7. Conjunction:</b> Joins words, phrases, clauses, or sentences (And, But, Either...Or, Because, Although).<br><b>8. Interjection:</b> Shows sudden emotion, feeling, or surprise (Wow!, Ouch!, Alas!, Hurray!).<br><br><b>Points to Remember (याद रखने योग्य बिंदु):</b><br>• <b>Gerund (V1+ing):</b> Noun की तरह कार्य करता है (e.g., <i>Swimming is good for health</i>).<br>• <b>Present Participle (V1+ing):</b> Adjective की तरह कार्य करता है (e.g., <i>Interesting people</i>).<br>• <b>Past Participle (V3):</b> Adjective की तरह कार्य करता है.<br>• <b>Perfect Participle (Having + V3):</b> एक कार्य पूरा होने के बाद दूसरे कार्य का होना दिखाता है (e.g., <i>Having finished her work, she left</i>).<br>• <b>Infinitive (To + V1):</b> Noun की तरह कार्य करता है (e.g., <i>To swim every day is good</i>).<br>• <b>Intensifier:</b> Adverb of degree जो किसी शब्द के अर्थ को मजबूत या कमजोर करता है.",
+        ex: "Q. Who came <u>first</u> in the race? → <b>Adverb</b> (modifies verb 'came').<br>Q. It is obligatory to wear <u>protective</u> clothing. → <b>Adjective</b> (qualifies noun 'clothing')."
+    },
+    {
+        title: "Concept 2: Recognition of Sentences",
+        rule: "Simple (1 Finite Verb) | Compound (FANBOYS) | Complex (Subordinate Clause) | Compound-Complex",
+        body: "<b>1. Simple Sentence:</b> Contains only one independent clause (one finite verb).<br>• <i>He works hard. / To earn money, he started a business.</i><br><b>2. Compound Sentence:</b> Contains 2 or more independent clauses joined by coordinating conjunctions (<b>FANBOYS</b> = For, And, Nor, But, Or, Yet, So) or adverbs like <i>Moreover, Therefore, However, Consequently, Otherwise, Nevertheless, Still, Besides</i>.<br>• <i>He worked hard, and he passed the exam. / The road was blocked; therefore, we reached late.</i><br><b>3. Complex Sentence:</b> Contains 1 independent clause and at least 1 dependent (subordinate) clause joined by: <i>Because, If, Although, Though, Unless, Until, When, While, Before, After, As, Since, Who, Whom, Which, That</i>.<br>• <i>Although it was raining, they continued the match.</i><br><b>4. Compound-Complex Sentence:</b> Has 3 or more clauses (at least two main clauses + one subordinate clause).<br>• <i>When the principal entered the hall, the students stood up, and the teachers welcomed him.</i>",
+        ex: "Q. Despite facing many difficulties, she achieved her goal. → <b>Simple Sentence</b> (only 1 finite verb 'achieved')."
+    },
+    {
+        title: "Concept 3: Past Perfect Vs Past Indefinite",
+        rule: "Past Indefinite = Subject + V2 (Definite Past Time) | Past Perfect = Subject + Had + V3 (Past of Past)",
+        body: "<b>1. Past Indefinite (Simple Past):</b> Past में किसी निश्चित समय पर होने वाले कार्यों के लिए।<br>• <b>Time Words:</b> <i>Yesterday, Ago, The day before yesterday, Last week/month/year, In 1947, In 2020, Once upon a time</i>.<br>• <b>Note:</b> <i>Did / Didn't</i> के बाद हमेशा Verb की <b>1st Form (V1)</b> आती है।<br><b>2. Past Perfect (Had + V3):</b> Past में किसी दूसरे कार्य या समय से पहले पूर्ण हो चुके कार्य (<b>Past of Past</b>) को व्यक्त करने के लिए।<br>• <b>Before / By the time Rule:</b> 1st Action (पहले हुआ काम) = <b>Had + V3</b> | 2nd Action (बाद में हुआ काम) = <b>Simple Past (V2)</b>.",
+        ex: "✗ He has come yesterday. → ✔ <b>He came yesterday.</b><br>✗ Little did the committee knew... → ✔ <b>Little did the committee know...</b><br>✗ The train had left before we had arrived. → ✔ <b>The train had left before we arrived.</b>"
+    },
+    {
+        title: "Concept 4: Subject-Verb Agreement with Additive Phrases",
+        rule: "Subject 1 + [as well as / along with / together with...] + Subject 2 + Verb (According to Subject 1)",
+        body: "यदि दो Nouns या Pronouns को नीचे दिए गए शब्दों से जोड़ा जाता है, तो वाक्य की <b>Verb हमेशा पहले Subject (Subject 1)</b> के अनुसार आती है:<br>• <b>Additive Phrases:</b> <i>as well as, along with, together with, besides, with, including, in addition to, accompanied by, rather than, nothing but, like, unlike, except, no less than, more than, and not, led by, headed by</i>.",
+        ex: "✗ The CEO along with his deputies were present. → ✔ <b>The CEO along with his deputies was present.</b><br>✗ Nothing but the trees were seen. → ✔ <b>Nothing but the trees was seen.</b>"
+    },
+    {
+        title: "Concept 5: Transitive Verbs & Superfluous Prepositions",
+        rule: "Transitive Verb (Active Voice) + Direct Object (NO Preposition in between!)",
+        body: "कुछ ऐसी Transitive Verbs हैं जो Active Voice में अपने बाद कोई Preposition न लेकर सीधा Object लेती हैं:<br>• <b>Comprise</b> (Remove <i>of</i>) = शामिल होना (Note: Passive में <i>is comprised of</i> या <i>consists of</i> सही है)<br>• <b>Discuss / Describe / Explain / Consider / Address / Mind</b> (Remove <i>about</i>)<br>• <b>Emphasize / Stress / Sign / Attack / Invade / Affect / Control</b> (Remove <i>on</i>)<br>• <b>Enter</b> (Remove <i>into</i> जब किसी कमरे/स्थान में प्रवेश हो; समझौते के लिए <i>enter into an agreement</i> सही है)<br>• <b>Investigate / Board</b> (Remove <i>into</i>)<br>• <b>Resemble / Tell / Advise / Inform / Request / Command / Answer / Obey / Thank / Warn / Visit</b> (Remove <i>to / with</i>)<br>• <b>Order / Demand / Await / Afford</b> (Remove <i>for</i>; Note: <i>Await = Wait for</i>)<br>• <b>Reach</b> (Remove <i>at</i>) | <b>Approach</b> (Remove <i>near</i>) | <b>Ask</b> (Remove <i>from</i>)<br>• <b>Marry</b> (Remove <i>with</i> in Active Voice; Passive में <i>married to</i> आता है)<br>• <b>Resist / Violate / Combat / Oppose</b> (Remove <i>against</i>)<br>• <b>Precede</b> (Remove <i>before</i>) | <b>Succeed</b> (Remove <i>after</i>) | <b>Flee</b> (Remove <i>away</i>)<br>• <b>Despite</b> (Remove <i>of</i>; क्योंकि <i>Despite = In spite of</i>) | <b>Lack</b> as verb (Remove <i>of/in</i>).",
+        ex: "✗ The finance team comprises of experts. → ✔ <b>The finance team comprises experts.</b><br>✗ Despite of being intelligent, he failed. → ✔ <b>Despite being intelligent, he failed.</b>"
+    },
+    {
+        title: "Concept 6: A Number of Vs The Number of",
+        rule: "A number of + Plural Noun + Plural Verb | The number of + Plural Noun + Singular Verb",
+        body: "• <b>A number of / A large number of</b> = Many/Several (कई) → इसके बाद <b>Plural Noun</b> और <b>Plural Verb</b> आती है।<br>• <b>The number of</b> = Total Exact Count (की कुल संख्या) → इसके बाद <b>Plural Noun</b> लेकिन <b>Singular Verb</b> आती है।<br>• <b>Exception:</b> <i>The number of + Plural Noun + who/which/that + Plural Verb + ... + Singular Main Verb.</i>",
+        ex: "✔ <b>The number of</b> applicants <b>has</b> increased this year.<br>✔ <b>A number of</b> books in the library <b>seem</b> outdated."
+    },
+    {
+        title: "Concept 7: Verb Follows Main Subject",
+        rule: "Main Subject + [Prepositional / Qualifying Phrase] + Verb (Agrees with Main Subject)",
+        body: "किसी वाक्य में Verb हमेशा <b>Main Subject</b> के अनुसार आती है, न कि उसके बाद आने वाले किसी qualifying phrase, modifier या object के अनुसार।<br>• यदि Subject कोई <b>Gerund (V1+ing)</b> या <b>Infinitive (To+V1)</b> हो, तो वह Singular माना जाता है और Singular Verb लेता है।",
+        ex: "✗ The cost of fruits and vegetables have risen. → ✔ <b>The cost</b> of fruits and vegetables <b>has</b> risen.<br>✗ Hearing those harsh words were painful. → ✔ <b>Hearing</b> those harsh words <b>was</b> painful."
+    },
+    {
+        title: "Concept 8: Fixed Preposition 'Of'",
+        rule: "Important Words followed by Preposition 'OF'",
+        body: "इन शब्दों के साथ हमेशा Preposition <b>'of'</b> का प्रयोग होता है:<br>• <b>Afraid of</b> (डरा हुआ), <b>Aware / Conscious / Cognizant of</b> (अवगत/सचेत), <b>Beware / Chary / Wary / Cautious of</b> (सावधान)<br>• <b>Accused / Guilty / Convicted of</b> (आरोपित/दोषी), <b>Acquit / Innocent of</b> (बरी/निर्दोष)<br>• <b>Capable / Incapable of</b> (सक्षम/असक्षम), <b>Confident / Sure / Certain / Sanguine / Hopeful of</b> (आश्वस्त/आशावादी)<br>• <b>Bereft / Deprived / Devoid / Destitute / Void of</b> (वंचित/रहित)<br>• <b>Fond / Enamoured of</b> (शौकीन/मोहित), <b>Envious / Jealous / Suspicious of</b> (ईर्ष्यालु/संदिग्ध)<br>• <b>Apprised of</b> (सूचित), <b>Cured / Healed of</b> (बीमारी से ठीक होना), <b>Die of</b> (बीमारी/भूख से मरना)<br>• <b>Dispose of</b> (छुटकारा पाना), <b>Avail of</b> (लाभ उठाना), <b>Consist / Composed of</b> (से बना होना), <b>Rob of</b> (लूटना), <b>Ashamed of</b>, <b>Worthy of</b>, <b>Tired / Weary / Sick of</b>, <b>Proud / Vain of</b>, <b>Ignorant / Negligent / Heedless of</b>.",
+        ex: "✗ He was accused for stealing data. → ✔ He was <b>accused of</b> stealing data.<br>✗ She is confident to win. → ✔ She is <b>confident of</b> winning."
+    },
+    {
+        title: "Concept 9: Concept of Modals",
+        rule: "Modal + V1 (Active) | Modal + be + V3 (Passive) | Modal + have + V3 (Past Perfect Modal)",
+        body: "• <b>Common Modals:</b> <i>can, could, may, might, shall, should, will, would, must, ought to, need, dare, used to</i>.<br>• सभी Modals के तुरंत बाद हमेशा <b>Verb की Base Form (V1)</b> आती है।<br>• <b>Lest के साथ:</b> हमेशा <b>should + V1</b> का प्रयोग होता है (<i>lest you should fail</i>), और इसके बाद <i>not</i> नहीं आता।<br>• <b>Superfluous Modal Errors:</b> <i>Can/Could</i> के साथ <i>able to</i> नहीं आता; <i>May/Might</i> के साथ <i>possibly/likely</i> नहीं आता; <i>Will/Shall</i> के साथ <i>likely</i> नहीं आता।",
+        ex: "✗ Ranbir could not went to the ceremony. → ✔ Ranbir <b>could not go</b>.<br>✗ Keep him at arm's length lest you may not repent. → ✔ ...<b>lest you should</b> repent."
+    },
+    {
+        title: "Concept 10: Hardly / Scarcely / No Sooner",
+        rule: "Hardly/Scarcely + Had/Did + Sub + V3/V1 ... WHEN + Sub + V2 | No Sooner + Had/Did + Sub + V3/V1 ... THAN + Sub + V2",
+        body: "1. जब वाक्य की शुरुआत <b>Hardly, Scarcely</b> या <b>No sooner</b> से हो, तो तुरंत बाद <b>Inversion (Helping Verb + Subject)</b> का प्रयोग होता है:<br>• <i>Hardly/Scarcely/No sooner + had + Subject + V3...</i> या <i>did + Subject + V1...</i><br>2. <b>Correlative Conjunction Pair:</b><br>• <b>Hardly / Scarcely</b> के साथ हमेशा <b>when</b> (या <i>before</i>) आता है (<i>than / then</i> नहीं)।<br>• <b>No sooner</b> के साथ हमेशा <b>than</b> आता है (<i>when / then / that</i> नहीं)।",
+        ex: "✗ No sooner he had arrived when the meeting started. → ✔ <b>No sooner had he arrived than</b> the meeting started.<br>✗ Hardly had he left than it began to rain. → ✔ <b>Hardly had he left when</b> it began to rain."
+    },
+    {
+        title: "Concept 11: Little, A Little, The Little",
+        rule: "Used with Uncountable Nouns (Quantity): Little (Negative) | A little (Positive) | The little (All available)",
+        body: "इनका प्रयोग <b>Uncountable Nouns</b> (water, milk, time, money, patience, information, knowledge, hope) की मात्रा बताने के लिए होता है:<br>• <b>Little:</b> Hardly any (न के बराबर — Negative meaning).<br>• <b>A little:</b> Some, though not much (थोड़ा/कुछ — Positive meaning; e.g., <i>A little knowledge is a dangerous thing</i>).<br>• <b>The little:</b> Not much, but all that is available (जितना थोड़ा है वो सारा — आगे <i>that/which</i> या clause आता है).",
+        ex: "✔ He was very thirsty, but there was <b>little</b> water in the bottle.<br>✔ He spent <b>the little</b> money he had."
+    },
+    {
+        title: "Concept 12: Used to (Modal vs Adjective vs Main Verb)",
+        rule: "1. Sub + used to + V1 | 2. Sub + be/get/become + used to + V1+ing | 3. Sub + be + used to + V1 (Use/Purpose)",
+        body: "<b>1. 'Used to' as a Modal (भूतकाल की आदत):</b> इसके बाद हमेशा <b>V1</b> आता है।<br>• <i>I used to go to school on foot.</i> (Negative: <i>didn't use to + V1</i> or <i>used not to + V1</i>).<br><b>2. 'Used to' as an Adjective (किसी चीज़ का आदी/अभ्यस्त होना):</b> यदि <i>used to</i> से पहले <b>is/am/are/was/were/get/got/become</b> आए और कर्ता किसी कार्य का आदी हो, तो इसके बाद <b>Gerund (V1+ing)</b> आता है!<br>• <i>I am used to waking up early in the morning.</i><br><b>3. 'Used' as a Main Verb (उपयोग किया जाना - Passive):</b> <i>Milk is used to make sweets (to + V1).</i>",
+        ex: "✗ I am used to eat late at night. → ✔ I am <b>used to eating</b> late at night.<br>✗ When I was a child, I use to go to the park. → ✔ ...I <b>used to go</b> to the park."
+    },
+    {
+        title: "Concept 13: Need Vs Dare (Semi-Modals)",
+        rule: "As Modal (Negative/Interrogative): Need/Dare + V1 (Bare Infinitive) | As Main Verb: Need/Dare + to + V1",
+        body: "<b>1. Modal Verb के रूप में:</b> जब <i>Need</i> या <i>Dare</i> का प्रयोग Negative (<i>need not, dare not</i>) या Interrogative (<i>Need I?, How dare you?</i>) में Modal की तरह हो, तो इनमें <i>s/es</i> नहीं लगता और इनके बाद <b>Bare Infinitive (केवल V1, बिना 'to' के)</b> आता है।<br>• <i>You need not worry. / He dare not speak the truth. / How dare you touch my diary?</i><br><b>2. Main Verb के रूप में:</b> जब इनका प्रयोग सामान्य Main Verb की तरह हो (या <i>do/does/did</i> के साथ हो), तो इनके बाद <b>to + V1 (Infinitive)</b> आता है।<br>• <i>He dares to oppose the decision. / Do you need to finish the work?</i>",
+        ex: "✗ You need not to bring original documents. → ✔ You <b>need not bring</b> original documents.<br>✗ He dares not to enter the house. → ✔ He <b>dare not enter</b> the house."
+    },
+    {
+        title: "Concept 14: Concept of 'One'",
+        rule: "Subject 'One' → Pronoun 'one' | Possessive 'one's' | Reflexive 'oneself' | Plural substitute 'ones'",
+        body: "• जब वाक्य का Subject सामान्य व्यक्ति के अर्थ में <b>'One'</b> हो, तो पूरे वाक्य में उसके लिए Pronoun <b>one</b>, अधिकार दिखाने के लिए <b>one's</b>, और स्वयं के लिए <b>oneself</b> का प्रयोग होता है (<i>he, his, him, himself, their, oneself</i> नहीं)।<br>• लेकिन यदि <b>One of the + Plural Noun</b> हो, तो आगे <i>his / her</i> आता है।<br>• किसी Singular Countable Noun के दोहराव से बचने के लिए <b>one</b> और Plural Noun के लिए <b>ones</b> लगाते हैं (बिना apostrophe के)।",
+        ex: "✗ One must keep his promises. → ✔ One must keep <b>one's</b> promises.<br>✔ The black shirts are better than the white <b>ones</b>."
+    },
+    {
+        title: "Concept 15: Since Vs For",
+        rule: "Since + Point of Time (कब से - Starting point) | For + Period of Time (कितने समय से - Duration)",
+        body: "• <b>Since (Point of Time):</b> निश्चित शुरुआती समय के साथ — <i>Since Monday, Since March, Since 2015, Since morning/evening, Since 5 o'clock, Since childhood, Since inception, Since Diwali</i>.<br>• <b>For (Period / Duration of Time):</b> समय की अवधि के साथ — <i>For 2 hours, For 5 years, For several days, For a long time, For a while, For the last ten days, For centuries</i>.<br>• <b>Tense Rule:</b> जब किसी वाक्य में <i>Since / For + Time</i> दिया हो (कि काम अतीत में शुरू होकर अभी भी जारी है), तो Simple Present/Continuous (<i>is/am/are + V-ing</i>) के स्थान पर <b>Present Perfect / Present Perfect Continuous (has/have been + V-ing)</b> आता है।",
+        ex: "✗ I am walking in the garden since morning. → ✔ I <b>have been walking</b> in the garden since morning.<br>✗ She has been teaching since five years. → ✔ ...<b>for five years</b>."
+    },
+    {
+        title: "Concept 16: Uses of Since (Preposition vs Conjunction)",
+        rule: "Present Perfect / Continuous (Main Clause) + SINCE + Past Indefinite V2 (Since Clause)",
+        body: "<b>1. Since as a Conjunction of Time (तब से लेकर अब तक):</b><br>• <i>Main Clause</i> में <b>Present Perfect (has/have + V3)</b> या <b>Present Perfect Continuous (has/have been + V-ing)</b> आता है, और <i>Since वाले Clause</i> में हमेशा <b>Simple Past (V2)</b> आता है!<br>• <i>It has been a long time since we met (V2) each other.</i><br><b>2. Since as a Conjunction of Reason (क्योंकि):</b><br>• जब <i>Since</i> का अर्थ 'क्योंकि' हो, तो दूसरे Clause से पहले <b>so / therefore</b> नहीं लगाते।",
+        ex: "✗ Nobody has seen her since she has left Dehradun. → ✔ Nobody has seen her <b>since she left</b> Dehradun."
+    },
+    {
+        title: "Concept 17: Linking Verbs Vs Action Verbs",
+        rule: "Linking Verb + Adjective (Describes Subject) | Action Verb + Adverb (Describes Action)",
+        body: "<b>1. Linking Verbs:</b> ये कोई कार्य (action) नहीं दिखातीं, बल्कि Subject की अवस्था या गुण बताती हैं। इसलिए इनके बाद <b>Adjective</b> आता है, Adverb (-ly) नहीं:<br>• <b>Linking Verbs:</b> <i>Be (is/am/are/was/were), look (दिखना), seem, appear, feel, sound, taste, smell, become, get, grow, turn, remain, stay, keep, prove</i>.<br>• <i>The soup tastes delicious (not deliciously). / He remained silent (not silently).</i><br><b>2. Action Verbs:</b> ये कार्य दिखाती हैं, इसलिए इनको modify करने के लिए <b>Adverb (-ly)</b> आता है:<br>• <i>She spoke concisely. / The detective looked carefully at the fingerprints.</i> (यहाँ look = देखना = Action Verb).",
+        ex: "✗ Neem tastes a little bitterly. → ✔ Neem tastes a little <b>bitter</b>.<br>✗ The car is moving very fastly. → ✔ The car is moving very <b>fast</b> ('fastly' कोई शब्द नहीं होता)."
+    },
+    {
+        title: "Concept 18: Superfluous Expressions (अनावश्यक शब्द)",
+        rule: "Never use redundant/duplicate words together!",
+        body: "नीचे दिए गए शब्दों के साथ अतिरिक्त शब्द लगाना गलत (Superfluous) होता है:<br>• <b>Return / Recede / Reimburse / Recall / Revert</b> के साथ <b>back</b> नहीं लगता।<br>• <b>Repeat / Retreat / Reborn / Rebuild</b> के साथ <b>again</b> नहीं लगता।<br>• <b>Cope with</b> सही है (<i>Cope up with</i> में <i>up</i> गलत है)।<br>• <b>Cousin</b> सही है (<i>Cousin brother / sister</i> गलत है)।<br>• <b>Final conclusion, Free gift, Two twins, Sufficient enough, Quite too, Equally as good as</b> गलत हैं।<br>• <b>The reason / The reason why</b> के साथ <b>because / due to</b> नहीं आता, बल्कि <b>that</b> आता है।<br>• <b>Suppose / In case</b> के साथ <b>if</b> नहीं आता।<br>• <b>Exceed</b> के साथ <b>more than</b> नहीं आता।<br>• <b>Until, Unless, Lest, Forbid, Deny, Hardly, Scarcely, Barely, Seldom</b> के साथ <b>not</b> नहीं आता।",
+        ex: "✗ The young officer could not cope up with the pressure. → ✔ ...<b>cope with</b> the pressure.<br>✗ The reason for visiting Meerut was because my mother was ill. → ✔ ...<b>was that</b> my mother was ill."
+    },
+    {
+        title: "Concept 19: Few, A Few, The Few & Fewer vs Less",
+        rule: "Used with Countable Plural Nouns (Number): Few (Negative) | A few (Some) | The few (All available)",
+        body: "• <b>Few:</b> Hardly any (न के बराबर संख्या — Negative).<br>• <b>A few:</b> Some, though not many (कुछ संख्या में — Positive; <i>Only a few</i> हमेशा साथ आता है).<br>• <b>The few:</b> Not many, but all those available (जितने थोड़े हैं वे सभी).<br>• <b>Fewer vs Less:</b> Countable Plural Nouns (students, people, marbles) की तुलना के लिए <b>fewer</b> का प्रयोग होता है, <i>less</i> का नहीं! (<i>Less</i> मात्रा/Uncountable के लिए आता है)।",
+        ex: "✗ No less than fifty students were absent. → ✔ <b>No fewer than</b> fifty students were absent.<br>✗ The patient will recover in few days. → ✔ ...in <b>a few</b> days."
+    },
+    {
+        title: "Concept 20: Concept of Enough",
+        rule: "Enough + Noun (Adjective) | Positive Degree Adjective/Adverb + Enough (Adverb)",
+        body: "1. जब <b>Enough</b> किसी <b>Noun</b> के साथ आए, तो वह <b>Noun से पहले</b> आता है: <i>Enough + Noun</i> (e.g., <i>enough money, enough resources</i>).<br>2. जब <b>Enough</b> किसी <b>Adjective या Adverb</b> के साथ आए, तो वह <b>Adjective/Adverb के बाद</b> आता है और वह Adjective हमेशा <b>Positive Degree</b> में होता है!<br>• <i>Positive Degree Adjective/Adverb + enough</i> (e.g., <i>big enough, tall enough, strong enough, clearly enough</i>).",
+        ex: "✗ The hotel room isn't enough big. → ✔ ...isn't <b>big enough</b>.<br>✗ Ramesh is stronger enough to handle it. → ✔ Ramesh is <b>strong enough</b>..."
+    },
+    {
+        title: "Concept 21: Until Vs Unless",
+        rule: "Until = Time Limit (जब तक न) | Unless = Condition (यदि नहीं / बिना शर्त)",
+        body: "• <b>Until:</b> समय-सीमा (Time limit) बताता है — 'जब तक'।<br>• <b>Unless:</b> शर्त (Condition = If not) बताता है — 'जब तक कि नहीं / यदि नहीं'।<br>• <b>2 Golden Rules:</b><br>1. <i>Until</i> और <i>Unless</i> दोनों अपने आप में Negative हैं, इसलिए इनके वाले Clause में <b>not</b> नहीं आता।<br>2. इनके वाले Conditional/Subordinate Clause में <b>will / shall / would</b> नहीं आता (Simple Present आता है)।",
+        ex: "✗ Wait for me until I do not return. → ✔ Wait for me <b>until I return</b>.<br>✗ You cannot crack SSC unless you will revise daily. → ✔ ...<b>unless you revise</b> daily."
+    },
+    {
+        title: "Concept 22: Concept of Multiple Adjectives (OSASCOMP)",
+        rule: "Fixed Order: Opinion → Size → Age → Shape → Colour → Origin → Material → Purpose + Noun",
+        body: "जब किसी Noun से पहले एक से अधिक Adjectives आते हैं, तो उन्हें <b>OSASCOMP</b> क्रम में रखा जाता है:<br>1. <b>O - Opinion:</b> beautiful, cute, stylish, honest<br>2. <b>S - Size:</b> big, small, tall, spacious<br>3. <b>A - Age:</b> old, new, young, modern<br>4. <b>S - Shape:</b> round, square<br>5. <b>C - Colour:</b> red, black, pink, white<br>6. <b>O - Origin:</b> Indian, British, Australian<br>7. <b>M - Material:</b> wooden, leather, steel, plastic<br>8. <b>P - Purpose:</b> sleeping (bag), storage (box).",
+        ex: "✗ a wooden big building → ✔ a <b>big wooden</b> building (Size + Material).<br>✗ a black leather stylish handbag → ✔ a <b>stylish black leather</b> handbag (Opinion + Colour + Material)."
+    },
+    {
+        title: "Concept 23: Suffix & Correct Word Form",
+        rule: "Use Noun, Verb, Adjective, or Adverb strictly according to grammatical position!",
+        body: "• <b>Noun Suffixes:</b> <i>-ness, -tion, -sion, -ment, -ty, -cy (accuracy), -ance, -ence, -hood, -ship, -dom</i>.<br>• <b>Adjective Suffixes:</b> <i>-ful, -less, -able, -ible, -ous, -ive, -al, -ic (scenic), -ish, -ent</i>.<br>• <b>Verb Suffixes:</b> <i>-ise, -ize (maximize), -ify (simplify), -ate, -en (widen, strengthen)</i>.<br>• <b>Key Exam Pairs:</b><br>— <i>Believe</i> (Verb) vs <i>Belief</i> (Noun)<br>— <i>Obedient</i> (Adj) vs <i>Obedience</i> (Noun)<br>— <i>Credible</i> (विश्वसनीय) vs <i>Credulous</i> (भोला/आसानी से विश्वास करने वाला)<br>— <i>Sensuous</i> (सौंदर्य/कला से जुड़ा सुखद) vs <i>Sensual</i> (शारीरिक/इंद्रिय भोग).",
+        ex: "✗ He made a quickly decision. → ✔ He made a <b>quick</b> decision (Adj + Noun).<br>✗ With a strong believe in their potential. → ✔ With a strong <b>belief</b> (Noun)."
+    },
+    {
+        title: "Concept 24: Too much Vs Much too",
+        rule: "Too much + Uncountable Noun | Much too + Adjective/Adverb | Too many + Plural Noun",
+        body: "1. <b>Too much + Uncountable Noun:</b> (e.g., <i>too much time, too much luggage, too much sugar, too much money</i>).<br>2. <b>Much too + Adjective / Adverb:</b> (e.g., <i>much too clear, much too heavy, much too careless, much too boring</i>).<br>3. <b>Too many + Plural Countable Noun:</b> (e.g., <i>too many mistakes, too many responsibilities, too many things</i>).<br>4. <b>None too + Adjective:</b> इसका अर्थ है <b>'Not very / ज्यादा खास नहीं' (Negative sense)</b> — e.g., <i>The movie was none too interesting; I almost fell asleep</i>.",
+        ex: "✗ The concept became too much clear. → ✔ ...<b>much too clear</b> (Adjective).<br>✗ Making too much mistakes. → ✔ Making <b>too many mistakes</b> (Plural Noun)."
+    },
+    {
+        title: "Concept 25: Verbs with Same Form (V1 = V2 = V3)",
+        rule: "Never add '-ed' to these immutable verbs!",
+        body: "इन 30 Verbs की तीनों Forms (V1, V2, V3) हमेशा एक समान रहती हैं (इनमें कभी <i>-ed</i> नहीं जुड़ता):<br>• <b>Cut, Put, Set, Shut, Hit, Let, Cost, Hurt, Burst, Cast, Bet, Bid (बोली लगाना), Broadcast, Telecast, Forecast, Split, Spread, Thrust, Upset, Quit, Slit, Read, Shed, Fit, Wet, Offset, Preset, Sublet, Input, Rid</b>.",
+        ex: "✗ The government order will be broadcasted. → ✔ ...will be <b>broadcast</b>.<br>✗ A gas cylinder unexpectedly bursted. → ✔ ...unexpectedly <b>burst</b>.<br>✗ The little boy hurted himself. → ✔ ...<b>hurt</b> himself."
+    },
+    {
+        title: "Concept 26: Apparently Plural (-s) but Singular Nouns",
+        rule: "Nouns ending in '-s' that take a SINGULAR Verb",
+        body: "कुछ Nouns दिखने में Plural लगते हैं क्योंकि उनके अंत में <b>'-s'</b> होता है, लेकिन अर्थ में वे <b>Singular</b> होते हैं और <b>Singular Verb (is/was/has/V1+s)</b> लेते हैं:<br>• <b>Subjects:</b> <i>Mathematics, Economics, Statistics, Civics, Politics, Linguistics, Mechanics, Ethics, Physics</i>.<br>• <b>Diseases:</b> <i>Measles, Mumps, Rickets, Diabetes, Rabies, Shingles</i>.<br>• <b>Games:</b> <i>Billiards, Darts, Draughts, Gymnastics, Athletics</i>.<br>• <b>Titles / Others:</b> <i>News, Innings, Summons (कोर्ट का बुलावा - Singular: a summons, Plural: summonses), The United Nations, The Netherlands, The Arabian Nights, The Three Musketeers</i>.",
+        ex: "✗ The news are too good to be true. → ✔ The news <b>is</b> too good to be true.<br>✗ Receiving a summon from the court. → ✔ Receiving <b>a summons</b> from the court."
+    },
+    {
+        title: "Concept 27: Although / Though Vs Despite / In spite of",
+        rule: "Although / Though + Clause (Sub + Verb) | Despite / In spite of + Noun / Pronoun / V-ing Phrase",
+        body: "1. <b>Although / Though (यद्यपि/हालाँकि):</b> ये Subordinating Conjunctions हैं। इनके बाद पूरा <b>Clause (Subject + Verb)</b> आता है।<br>• <b>Note:</b> <i>Although / Though</i> के साथ कभी भी <b>but</b> नहीं आता! (केवल <b>comma (,)</b> या <b>yet</b> आ सकता है)।<br>2. <b>Despite / In spite of (के बावजूद):</b> ये Prepositions हैं। इनके बाद कोई <b>Noun, Pronoun, V-ing (Gerund)</b> या <i>the fact that</i> आता है, सीधा Clause नहीं आता। (और <i>Despite</i> के साथ कभी <i>of</i> नहीं लगता)।",
+        ex: "✗ Though he is poor, but he is honest. → ✔ <b>Though he is poor, he is honest.</b><br>✗ In spite of my niece's dog is mischievous, he is lovable. → ✔ <b>Although</b> my niece's dog is mischievous..."
+    },
+      {
+        title: "Concept 28: Fairly Vs Rather",
+        rule: "Fairly + Pleasant Adjective (Positive Tone) | Rather + Unpleasant Adjective / Comparative Degree",
+        body: "1. <b>Fairly (Adverb):</b> इसका प्रयोग <b>Positive / सुहावने गुणों (Pleasant Adjectives)</b> के साथ केवल Positive Degree में होता है (e.g., <i>fairly easy, fairly encouraging, fairly tasty, fairly balmy</i>).<br>2. <b>Rather (Adverb):</b> इसका प्रयोग <b>Negative / अवांछनीय गुणों (Unpleasant Adjectives)</b> के साथ होता है (e.g., <i>rather disappointing, rather poor, rather cold, rather shy, rather distracting</i>).<br>• <b>Special Rule:</b> <i>Rather</i> का प्रयोग <b>Comparative Degree</b> (<i>rather harder, rather difficult than</i>) और <b>would rather...than</b> में भी होता है।",
+        ex: "✗ The results of the survey were fairly disappointing. → ✔ ...<b>rather</b> disappointing.<br>✗ Shut the window; it is fairly cold. → ✔ ...it is <b>rather</b> cold."
+    },
+    {
+        title: "Concept 29: Third Conditional (Unreal Past)",
+        rule: "If + Sub + had + V3, Sub + would/could/might + have + V3 | Inversion: Had + Sub + V3...",
+        body: "Past की ऐसी काल्पनिक स्थिति जो वास्तव में घटित नहीं हुई (Regret या Missed opportunity दिखाने के लिए):<br>• <b>If Clause:</b> <i>If + Subject + had + V3</i> (या Inversion: <i>Had + Subject + V3</i>).<br>• <b>Main Clause:</b> <i>Subject + would / could / might + have + V3</i>.<br>• <b>Note:</b> <i>If</i> वाले Clause में कभी भी <i>would have</i> नहीं आता!",
+        ex: "✗ Had I knew the answer, I would have raised my hand. → ✔ <b>Had I known</b> the answer...<br>✗ If I would have realised... → ✔ <b>If I had realised...</b>"
+    },
+    {
+        title: "Concept 30: Distributive Adjectives Vs Pronouns",
+        rule: "Each / Every / Either / Neither + Singular Noun + Singular Verb | Each of / Either of / Neither of / None of + Plural Noun + Singular Verb",
+        body: "• <b>Either:</b> दो में से कोई एक (Used for 2 only).<br>• <b>Neither:</b> दो में से कोई भी नहीं (Used for 2 only; 2 से अधिक के लिए <b>None</b> आता है).<br>• <b>Each:</b> दो या दो से अधिक के लिए।<br>• <b>Every:</b> केवल दो से अधिक के लिए। <i>Every</i> केवल Adjective है, इसलिए <b>Every of</b> कभी नहीं होता (<i>Each of</i> सही है)।<br>• इन सभी के साथ <b>Verb</b> और <b>Possessive Adjective (his/her)</b> हमेशा <b>Singular</b> रहते हैं।",
+        ex: "✗ Neither of the two boys have completed their homework. → ✔ Neither of the two boys <b>has</b> completed <b>his</b> homework.<br>✗ Every of the participants was asked. → ✔ <b>Each of</b> the participants was asked."
+    },
+    {
+        title: "Concept 31: Double Comparatives and Superlatives",
+        rule: "Never use two comparative (more + er) or two superlative (most + est) forms together!",
+        body: "एक ही विशेषण के साथ दो Comparative या दो Superlative शब्दों का प्रयोग गलत होता है:<br>• ✗ <i>more smarter, more bigger, more easier, more faster, more wiser, more better</i> → ✔ <b>smarter, bigger, easier, faster, wiser, better</b>.<br>• ✗ <i>most easiest, most highest, most toughest, most shortest, most finest</i> → ✔ <b>easiest, highest, toughest, shortest, finest</b>.<br>• <b>Emphasis:</b> Comparative से पहले <i>very</i> नहीं, बल्कि <b>much / far</b> लगता है (e.g., <i>much heavier, far better</i>).",
+        ex: "✗ This is the most easiest question. → ✔ This is the <b>easiest</b> question.<br>✗ You are very heavier than I. → ✔ You are <b>much heavier</b> than I."
+    },
+    {
+        title: "Concept 32: Neither...Nor, Either...Or, Not only...But also",
+        rule: "Part A: Verb agrees with NEAREST Subject | Part B: Maintain Parallelism (Same Part of Speech)",
+        body: "<b>Part-A (Verb Agreement):</b> जब दो Subjects को <i>Neither...nor, Either...or, Not only...but also</i> से जोड़ा जाए, तो <b>Verb अपने सबसे पास वाले (Nearest) Subject</b> के अनुसार आती है।<br><b>Part-B (Parallel Structure):</b> ये Correlative Conjunctions जिन दो शब्दों को जोड़ते हैं, वे एक ही Part of Speech (Noun-Noun, Verb-Verb, Preposition-Preposition) में होने चाहिए।",
+        ex: "✔ Neither the manager nor the <b>employees were</b> aware.<br>✗ Not only we saw the President but also the CM. → ✔ We saw <b>not only the President but also the CM</b>."
+    },
+    {
+        title: "Concept 33: Confusing Pair of Verbs",
+        rule: "Master V1 - V2 - V3 of confusing verb pairs!",
+        body: "• <b>Fly - Flew - Flown</b> (उड़ना) vs <b>Flow - Flowed - Flowed</b> (बहना)<br>• <b>Hang - Hanged - Hanged</b> (फाँसी देना) vs <b>Hang - Hung - Hung</b> (लटकाना/टाँगना)<br>• <b>Lie - Lied - Lied</b> (झूठ बोलना) | <b>Lie - Lay - Lain</b> (लेटना - Intransitive) | <b>Lay - Laid - Laid</b> (रखना/बिछाना/अंडे देना - Transitive)<br>• <b>Rise - Rose - Risen</b> (उठना/बढ़ना - No object) vs <b>Raise - Raised - Raised</b> (उठाना - Takes object) vs <b>Raze</b> (ध्वस्त करना)<br>• <b>Fall - Fell - Fallen</b> (गिरना) vs <b>Fell - Felled - Felled</b> (काटकर गिराना) vs <b>Befall - Befell - Befallen</b> (मुसीबत आ पड़ना)<br>• <b>Find - Found - Found</b> (पाना) vs <b>Found - Founded - Founded</b> (स्थापना करना)<br>• <b>Wind - Wound - Wound</b> (चाबी भरना/लपेटना) vs <b>Wound - Wounded - Wounded</b> (घायल करना)<br>• <b>Sink</b> (निर्जीव वस्तु/जहाज डूबना) vs <b>Drown</b> (सजीव व्यक्ति डूबना)<br>• <b>Affect</b> (Verb: असर डालना) vs <b>Effect</b> (Noun: परिणाम / Verb: बदलाव लाना)<br>• <b>Advice / Practice / Complaint</b> (Noun) vs <b>Advise / Practise / Complain</b> (Verb)<br>• <b>Lose</b> (Verb: खोना/हारना) vs <b>Loss</b> (Noun: घाटा) vs <b>Loose</b> (Adj: ढीला).",
+        ex: "✗ The thief was hung for his crimes. → ✔ The thief was <b>hanged</b>.<br>✗ The exhausted traveller laid quietly on the sofa. → ✔ ...<b>lay</b> quietly (Lie-Lay-Lain)."
+    },
+    {
+        title: "Concept 34: Fixed Preposition 'From'",
+        rule: "Words taking Preposition 'FROM'",
+        body: "इन शब्दों के साथ हमेशा <b>'from' (+ V1+ing / Noun)</b> का प्रयोग होता है:<br>• <b>Abstain from</b> (परहेज करना), <b>Refrain from</b> (बचना/रुकना), <b>Desist from</b> (रुकना)<br>• <b>Prevent / Prohibit / Stop / Bar / Debar / Deter / Dissuade / Restrain / Preclude from</b> (रोकना/मना करना)<br>• <b>Differ / Different from</b> (भिन्न होना), <b>Deviate from</b> (भटकना), <b>Derive / Stem / Emerge from</b> (उत्पन्न होना/निकलना)<br>• <b>Exempt / Free / Exonerate from</b> (छूट देना/दोषमुक्त करना), <b>Recover / Suffer / Protect / Save / Escape / Alight from</b>.",
+        ex: "✗ My parents prevented me to join the team. → ✔ ...<b>prevented me from joining</b>.<br>✗ Please refrain to going out. → ✔ Please <b>refrain from going</b> out."
+    },
+    {
+        title: "Concept 35: Order of Pronouns (231 vs 123 Rule)",
+        rule: "Good/Normal Sense (Singular): 2 + 3 + 1 (You, He and I) | Crime/Blame OR Plural Pronouns: 1 + 2 + 3 (I, You and He / We, You and They)",
+        body: "• <b>Part A (2-3-1 Rule):</b> सामान्य या अच्छे कार्य में Singular Pronouns का क्रम: <b>2nd Person (You) + 3rd Person (He/She/Name) + 1st Person (I)</b>.<br>• <b>Part B (1-2-3 Rule):</b> गलती, अपराध, दोष (fault, guilt, blame) स्वीकार करते समय: <b>1st Person (I) + 2nd Person (You) + 3rd Person (He)</b>.<br>• <b>Part C (Plural Sense):</b> जब सभी Pronouns बहुवचन (We, You, They) में हों, तो भी क्रम <b>1 + 2 + 3 (We, you and they)</b> रहता है।<br>• Subject के स्थान पर हमेशा Subjective Case (<i>I, he, she</i>) आता है, <i>me</i> या <i>myself</i> नहीं।",
+        ex: "✗ I and my friend were declared the best couple. → ✔ <b>My friend and I</b> (3 + 1).<br>✗ You, he and I were responsible for leaking documents. → ✔ <b>I, you and he</b> (1 + 2 + 3 - Blame)."
+    },
+    {
+        title: "Concept 36: The Single Unit Rule",
+        rule: "Cardinal Number + Plural Noun (Definite Distance / Amount / Weight / Period as Single Unit) + SINGULAR Verb",
+        body: "जब Plural Nouns का प्रयोग Cardinal Adjectives (One, Two, Ten, Fifty) के बाद किसी निश्चित <b>मात्रा, वजन, समय या दूरी को एक इकाई (Single Unit)</b> के रूप में दिखाने के लिए हो, तो उनके साथ <b>Singular Verb</b> आती है। (लेकिन यदि उन्हें अलग-अलग बाँटने/खर्च करने के अर्थ में लिया जाए, तो Plural Verb आती है)।",
+        ex: "✔ <b>Thirty miles is</b> a long way to walk.<br>✔ <b>Eighty rupees is</b> too much for this bag.<br>✔ Ten thousand rupees <b>have</b> been spent on different items."
+    },
+    {
+        title: "Concept 37: Along / Across / Through",
+        rule: "Along = Parallel (साथ-साथ/किनारे-किनारे) | Across = One side to other (आर-पार) | Through = Inside 3D space (के अंदर से होकर)",
+        body: "• <b>Along:</b> किसी रेखा, सड़क, नदी किनारे या बीच (beach) के समानांतर (parallel/side-by-side) चलना (e.g., <i>walked along the river bank / beach / narrow street</i>).<br>• <b>Across:</b> किसी सतह के एक पार से दूसरे पार जाना (e.g., <i>rowed across the river, sailed across the ocean, ran across the road</i>).<br>• <b>Through:</b> किसी बंद या त्रि-आयामी (3D enclosed) स्थान के अंदर से होकर गुजरना (e.g., <i>marched through the narrow tunnel, through the crowd, through the forest/gate/window</i>).",
+        ex: "✗ The soldiers marched across the narrow tunnel. → ✔ ...<b>through</b> the narrow tunnel.<br>✗ They walked in the beach. → ✔ They walked <b>along</b> the beach."
+    },
+    {
+        title: "Concept 38: As / Since / Because Vs So / Therefore",
+        rule: "Never use So / Therefore after As / Since / Because! | Because + Clause vs Because of + Noun Phrase",
+        body: "1. <b>As, Since, Because</b> कारण बताते हैं; इनके साथ परिणाम बताने वाले <b>so, therefore, thus</b> का प्रयोग करना गलत (Superfluous) है।<br>2. <b>Because (Conjunction):</b> इसके बाद पूरा <b>Clause (Subject + Verb)</b> आता है।<br>3. <b>Because of / Due to / Owing to / On account of (Preposition):</b> इनके बाद केवल <b>Noun / Pronoun / Noun Phrase</b> आता है, पूरा Clause नहीं!",
+        ex: "✗ Because the server was down, so users could not access it. → ✔ <b>Because the server was down, users could not access it.</b> (Remove 'so')."
+    },
+    {
+        title: "Concept 39: Indefinite Pronouns",
+        rule: "Everyone/Everybody/Someone/Somebody/Anyone/Nobody + Singular Verb + his/her | Everything/Something/Nothing/Anything + Singular Verb + its",
+        body: "• सभी Indefinite Pronouns हमेशा <b>Singular</b> होते हैं और <b>Singular Verb (is/was/has/V1+s)</b> लेते हैं।<br>• व्यक्तियों के लिए (<i>Everyone, Somebody, Nobody, Anyone</i>) आगे <b>his / her</b> का प्रयोग होता है (<i>their / its</i> का नहीं)।<br>• वस्तुओं के लिए (<i>Everything, Something, Nothing, Anything</i>) आगे <b>its</b> का प्रयोग होता है।<br>• <i>Nothing, Nobody, No one</i> के साथ उसी Clause में <i>not / never</i> नहीं आता।",
+        ex: "✗ Everyone are well equipped. → ✔ Everyone <b>is</b> well equipped.<br>✗ Nothing in the report has lost their relevance. → ✔ ...lost <b>its</b> relevance."
+    },
+    {
+        title: "Concept 40: Future Perfect Vs Future Perfect Continuous",
+        rule: "By + Future Time / By the time + Simple Present → will/shall + have + V3 (Future Perfect)",
+        body: "1. <b>Future Perfect (will have + V3):</b> जब कोई कार्य भविष्य में किसी निश्चित समय (<i>By tomorrow, By next month/year, By the time + V1/V5</i>) तक पूरा हो चुका होगा।<br>• <b>Note:</b> <i>By the time</i> वाले Subordinate Clause में कभी <i>will</i> नहीं आता, उसमें <b>Simple Present (V1/V5)</b> आता है!<br>2. <b>Future Perfect Continuous (will have been + V-ing + for/from + time):</b> जब कार्य भविष्य में किसी समय तक एक अवधि से लगातार जारी रहेगा। (Future में <i>since</i> के स्थान पर <b>from</b> का प्रयोग होता है)।",
+        ex: "✗ By the time we will reach, the concert will have started. → ✔ <b>By the time we reach</b>, the concert will have started.<br>✗ By next year, she has completed her research. → ✔ ...she <b>will have completed</b> her research."
+    },
+    {
+        title: "Concept 41: Concept of 'As'",
+        rule: "Regard/Describe/Define/Treat/View/Know/Portray + AS | Name/Elect/Think/Consider/Call/Appoint/Make/Choose/Declare + NO 'AS'",
+        body: "<b>1. Verbs जो अपने बाद 'AS' लेती हैं:</b><br>• <i>regard, describe, define, treat, view, know, portray</i>.<br>• Ex: <i>They regard him <b>as</b> a great leader. / The report defines poverty <b>as</b> a condition.</i><br><b>2. Verbs जिनके बाद 'AS' का प्रयोग नहीं होता:</b><br>• <i>name, elect, think, consider, call, appoint, make, choose, declare</i>.<br>• Ex: <i>The committee elected him chairman (Remove 'as'). / The jury declared him guilty (Remove 'as').</i>",
+        ex: "✗ The teacher made him as the class monitor. → ✔ The teacher <b>made him the class monitor</b>.<br>✗ They regard him a great leader. → ✔ They <b>regard him as</b> a great leader."
+    },
+    {
+        title: "Concept 42: Synthesis of Positive & Comparative Degrees",
+        rule: "Sub + Verb + as/so + Positive Degree + as + [if not / or even] + Comparative Degree + than...",
+        body: "जब एक ही वाक्य में Positive और Comparative दोनों Degrees को जोड़ा जाता है, तो दोनों की संरचना पूर्ण (Complete) होनी चाहिए:<br>• Positive के दोनों ओर <b>as...as</b> (पूरा जोड़ा) और Comparative के बाद <b>than</b> दोनों लगाना अनिवार्य है!",
+        ex: "✗ The young athlete is as strong, if not stronger than his competitors. → ✔ ...is <b>as strong as</b>, if not <b>stronger than</b> his competitors."
+    },
+    {
+        title: "Concept 43: Non-gradable (Absolute) Adjectives",
+        rule: "Never use 'more' or 'most' before Absolute Adjectives!",
+        body: "कुछ Adjectives अपने आप में पूर्ण (Absolute/Extreme) स्थिति दिखाते हैं, इसलिए इनसे पहले <b>more</b> या <b>most</b> लगाना गलत है:<br>• <b>Important Words:</b> <i>Unique, Perfect, Ideal, Supreme, Universal, Complete, Chief, Extreme, Entire, Whole, Full, Empty, Dead, Alive, Impossible, Infinite, Final, Absolute, Eternal, Round, Square, Blind, Fatal</i>.<br>• (Примечание: <i>Unique</i> से पहले <i>a</i> आ सकता है, पर <i>most unique</i> कभी नहीं होता)।",
+        ex: "✗ The painting is the most unique in the gallery. → ✔ The painting is <b>unique</b>.<br>✗ Happiness is the chiefest aim of mankind. → ✔ ...the <b>chief</b> aim."
+    },
+    {
+        title: "Concept 44: Half of / Some of / A Lot of / Most of",
+        rule: "Half of / Some of / Most of / A lot of + Plural Noun → Plural Verb | + Uncountable/Singular Noun → Singular Verb",
+        body: "इन expressions के बाद आने वाली Verb इस बात पर निर्भर करती है कि इनके बाद कैसा Noun आया है:<br>• यदि <b>Plural Countable Noun</b> है → <b>Plural Verb</b> (e.g., <i>Half of the books are useful</i>).<br>• यदि <b>Uncountable / Singular Noun</b> है → <b>Singular Verb</b> (e.g., <i>Lots of luggage has been misplaced. / Most of the work has been completed</i>).<br>• <b>Note:</b> सही मुहावरा <b>A lot of</b> या <b>Lots of</b> होता है (<i>A lots of</i> या <i>Lot of</i> गलत है)।",
+        ex: "✗ Some of the information are not reliable. → ✔ Some of the information <b>is</b> not reliable.<br>✗ Some of the issues has no relevance. → ✔ Some of the issues <b>have</b> no relevance."
+    },
+    {
+        title: "Concept 45: Order of Definite Adjectives (OC Rule)",
+        rule: "The + Ordinal Number (first, second, last) + Cardinal Number (one, two, three, five) + Noun",
+        body: "• <b>Ordinal Numbers (क्रम सूचक):</b> <i>first, second, third, last</i>.<br>• <b>Cardinal Numbers (संख्या सूचक):</b> <i>one, two, three, four, five</i>.<br>• जब ये दोनों एक साथ आएँ, तो हमेशा पहले <b>Ordinal</b> और फिर <b>Cardinal (O → C)</b> आता है!",
+        ex: "✗ Study the two first chapters carefully. → ✔ Study <b>the first two</b> chapters.<br>✗ Evaluated thefive last fiscal policies. → ✔ ...<b>the last five</b> fiscal policies."
+    },
+    {
+        title: "Concept 46: Fixed Preposition 'To'",
+        rule: "Words & Phrases taking Preposition 'TO'",
+        body: "इन शब्दों के साथ हमेशा Preposition <b>'to'</b> आता है:<br>• <b>Senior / Junior / Superior / Inferior / Prior / Anterior / Posterior / Prefer / Preferable to</b> (<i>than</i> कभी नहीं आता!)<br>• <b>Accustomed to, Addicted to, Habituated to, Inured to, Dedicated to, Devoted to, Committed to, Confined to, Prone to, Averse to, With a view to, Look forward to, Object to, Consent to, Accede to, Assent to, Adhere to, Stick to, Yield to, Succumb to, Indifferent to, Hostile to, Inimical to, Detrimental to, Injurious to, Harmful to, Fatal to, Akin to, Similar to, Analogous to, Equal/Equivalent to, Relevant/Pertinent to, Blind to (गलतियों को अनदेखा करना), Obliged/Indebted to, Attribute to, Key/Preface/Antidote/Menace/Exception to</b>.",
+        ex: "✗ He was senior than me in college. → ✔ He was <b>senior to</b> me.<br>✗ He preferred coffee than tea. → ✔ He <b>preferred coffee to</b> tea."
+    },
+    {
+        title: "Concept 47: Concept of 'One of'",
+        rule: "1. One of + Plural Noun + Singular Verb | 2. One of + Plural Noun + who/which/that + Plural Verb | 3. The only one of + Plural Noun + who/which/that + Singular Verb",
+        body: "<b>Rule 1:</b> <i>One of the</i> के बाद आने वाला Noun हमेशा <b>Plural</b> और मुख्य Verb हमेशा <b>Singular</b> होती है (e.g., <i>One of the questions was difficult</i>).<br><b>Rule 2:</b> यदि <i>One of the + Plural Noun</i> के बाद Relative Pronoun (<i>who, which, that</i>) आए, तो Relative Pronoun के बाद वाली Verb <b>Plural</b> होती है (क्योंकि वह Plural Noun के लिए आती है)।<br><b>Rule 3:</b> लेकिन यदि <b>The only one of the + Plural Noun + who/that</b> दिया हो, तो Verb <b>Singular</b> ही आती है!",
+        ex: "✔ He is one of those students who <b>have</b> never cheated.<br>✔ He is <b>the only one</b> of the players who <b>has</b> scored a century."
+    },
+    {
+        title: "Concept 48: It's Time Phrases & As if / As though",
+        rule: "It is time / It is high time + Subject + V2 (Past Indefinite) | As if / As though + Subject + were / had + V3",
+        body: "<b>Part A:</b> <i>It is time / It is high time / It is about time</i> के बाद यदि कोई <b>Subject</b> दिया हो, तो उसके साथ हमेशा <b>Verb की 2nd Form (V2)</b> आती है! (यदि सीधा Verb हो तो <i>It is time to + V1</i> आता है)।<br><b>Part B:</b> <i>As if / As though</i> (मानो कि) के बाद काल्पनिक स्थिति दिखाने के लिए <b>were</b> (सभी Subjects के साथ) या <b>V2 / had + V3</b> का प्रयोग होता है।",
+        ex: "✗ It is high time we renovate our old house. → ✔ It is high time we <b>renovated</b> our old house.<br>✗ He behaves as if he is the only expert. → ✔ He behaves as if he <b>were</b>..."
+    },
+    {
+        title: "Concept 49: It Vs There (Dummy Subjects)",
+        rule: "It + Singular Verb (Weather/Time/Temperature/Infinitive) | There + Verb (According to the Noun that follows it)",
+        body: "• <b>It:</b> समय, मौसम, तापमान, दूरी या Infinitive (<i>It is necessary to...</i>) के लिए Dummy Subject बनता है और हमेशा <b>Singular Verb</b> लेता है।<br>• <b>There:</b> इसके बाद आने वाली Verb आगे लिखे हुए <b>Real Subject (Noun)</b> के Singular या Plural होने पर निर्भर करती है:<br>— <i>There <b>is</b> a time...</i> (Singular)<br>— <i>There <b>remain</b> significant challenges...</i> (Plural).",
+        ex: "✗ Rarely have there been a time... → ✔ Rarely <b>has</b> there been <b>a time</b>...<br>✗ There seems to be several errors. → ✔ There <b>seem</b> to be <b>several errors</b>."
+    },
+    {
+        title: "Concept 50: Compound Subject as a Single Unit",
+        rule: "Two Nouns joined by 'and' expressing ONE single idea/unit take a SINGULAR Verb",
+        body: "जब दो Nouns <b>'and'</b> से जुड़कर एक ही वस्तु, भोजन या भाव (Single Idea/Unit) को व्यक्त करें, तो उनके साथ <b>Singular Verb</b> आती है:<br>• <b>Important Single Units:</b> <i>Bread and butter, Rice and curry, Lime and soda, Fish and chips, Law and order, Slow and steady, Truth and honesty, Sum and substance, Rise and fall, Ebb and flow, Part and parcel, Drinking and driving, Hammer and sickle, Horse and carriage, Peace and harmony, Bag and baggage</i>.",
+        ex: "✗ Slow and steady win the race. → ✔ Slow and steady <b>wins</b> the race.<br>✗ The sum and substance of this chapter are not clear. → ✔ ...<b>is</b> not clear."
+    },
+    {
+        title: "Concept 51: Stative Verbs Vs Action Verbs",
+        rule: "Stative Verbs (State/Mental/Possession/Senses) are NOT used in Continuous (-ing) Tense!",
+        body: "जो Verbs किसी कार्य (action) के बजाय मानसिक स्थिति, भावना, अधिकार या इंद्रिय बोध (state, feeling, thought, possession) दिखाती हैं, उनका प्रयोग <b>Continuous Tense (-ing)</b> में नहीं किया जाता:<br>• <b>Common Stative Verbs:</b> <i>know, understand, believe, remember, forget, agree, love, hate, like, prefer, need, want, wish, have (रखना/पास होना), own, belong, consist, contain, seem, appear, look (दिखना), smell, taste, hear, see, realize, suppose</i>.",
+        ex: "✗ I have been knowing him for a long time. → ✔ I <b>have known</b> him for a long time.<br>✗ The entrepreneur is owning a luxurious apartment. → ✔ ...<b>owns</b> a luxurious apartment."
+    },
+    {
+        title: "Concept 52: Fixed Preposition 'In'",
+        rule: "Words & Phrases taking Preposition 'IN'",
+        body: "इन शब्दों के साथ हमेशा Preposition <b>'in'</b> आता है:<br>• <b>Believe in, Trust in, Confide in (भरोसा करना), Persist in (डटे रहना), Persevere in, Succeed in (+ V-ing), Excel in, Proficient in, Adept in, Expert in, Skilled in, Competent in, Accomplished in, Versed in, Deficient in (कमी होना), Rich/Poor in, Abound in, Immerse/Absorbed/Engrossed/Engulfed/Enveloped in, Implicated in (घोटाले/अपराध में शामिल), Engage/Involve/Participate/Indulge/Revel in, Consist in (निहित होना), Result/End in, Usher in (नए युग की शुरुआत करना), Deal/Trade in (व्यापार करना), Blind in (एक आँख से अंधा - blind in one eye), Decline/Decrease/Rise in, Reservation in jobs, In cash, In neat handwriting, Published in the newspaper</b>.",
+        ex: "✗ She persisted to doing what she wanted. → ✔ She <b>persisted in doing</b>...<br>✗ Paid immediately on cash. → ✔ Paid immediately <b>in cash</b>.<br>✗ The man is blind of one eye. → ✔ ...<b>blind in</b> one eye."
+    },
+    {
+        title: "Concept 53: Causative Verbs (Make, Get, Have, Let)",
+        rule: "Make/Have/Let + Person + V1 (Bare Infinitive) | Get + Person + to + V1 | Get/Have + Thing + V3 (Passive)",
+        body: "जब Subject स्वयं काम न करके किसी दूसरे से काम करवाता है:<br>1. <b>MAKE:</b> Active: <i>Make + Object + <b>V1</b></i> (बिना 'to' के) | Passive: <i>be made + <b>to + V1</b></i>.<br>2. <b>HAVE:</b> Active (Person): <i>Have + Person + <b>V1</b></i> | Passive (Thing): <i>Have + Thing + <b>V3</b></i>.<br>3. <b>GET:</b> Active (Person): <i>Get + Person + <b>to + V1</b></i> | Passive (Thing): <i>Get + Thing + <b>V3</b></i>.<br>4. <b>LET:</b> <i>Let + Object + <b>V1</b></i> (हमेशा Bare Infinitive).",
+        ex: "✗ The HR head made the assistant resubmitting the files. → ✔ ...<b>made the assistant resubmit (V1)</b>.<br>✗ She got her dress stitching. → ✔ She <b>got her dress stitched (V3)</b>."
+    },
+    {
+        title: "Concept 54: Indefinite Articles (A / An Sound Rule)",
+        rule: "Article 'A' before Consonant Hindi Sound (क से ज्ञ) | Article 'An' before Vowel Hindi Sound (अ से औ)",
+        body: "<b>A / An</b> का प्रयोग शब्द के प्रथम अक्षर की <b>ध्वनि (Sound)</b> पर निर्भर करता है, न कि केवल A, E, I, O, U की स्पेलिंग पर:<br>• <b>Use 'A' (व्यंजन ध्वनि 'य' या 'व' आने पर):</b> <i>A university, A union, A unique idea, A unit, A universal truth, A useful book, A European, A ewe (मादा भेड़), A eucalyptus tree, A eulogy, A one-rupee note, A one-eyed man, A once-in-a-lifetime opportunity, A UN envoy</i>.<br>• <b>Use 'AN' (स्वर ध्वनि आने पर — Silent 'H' या Abbreviations):</b> <i>An hour, An honest man, An heir (उत्तराधिकारी), An heirloom, An honour, An honorary post, An FIR, An MLA, An MP, An MNC, An NGO, An NCC cadet, An X-ray, An SDO, An SP, An SBI employee, An LLB</i>.",
+        ex: "✗ They went to an university. → ✔ They went to <b>a university</b>.<br>✗ She is a heir to a vast property. → ✔ She is <b>an heir</b>.<br>✗ My brother works for a M.N.C. → ✔ ...<b>an M.N.C.</b>"
+    },
+    {
+        title: "Concept 55: Active & Passive Voice (Section-B Master Rules)",
+        rule: "Be + V3 is mandatory in every Passive Voice sentence! (No change in Tense)",
+        body: "• <b>Indefinite:</b> V1/V5 → <i>is/am/are + V3</i> | V2 → <i>was/were + V3</i> | Will + V1 → <i>will be + V3</i>.<br>• <b>Continuous:</b> is/am/are/was/were + V-ing → <i>is/am/are/was/were + <b>being + V3</b></i>.<br>• <b>Perfect:</b> has/have/had + V3 → <i>has/have/had + <b>been + V3</b></i>.<br>• <b>Modals & Infinitives:</b> Modal + V1 → <i>Modal + be + V3</i> | To + V1 → <i>to be + V3</i>.<br>• <b>Fixed Prepositions in Passive (No 'by'):</b> <i>Known <b>to</b>, Surprised/Astonished/Amazed/Shocked/Alarmed <b>at</b>, Pleased/Satisfied/Disgusted/Crammed/Thronged/Lined <b>with</b>, Contained/Embodied/Interested/Engulfed <b>in</b></i>.",
+        ex: "Active: I know him. → Passive: <b>He is known to me.</b><br>Active: Who taught you English? → Passive: <b>By whom were you taught English?</b>"
+    },
+    {
+        title: "Concept 56: Direct & Indirect Speech (Narration Master Rules)",
+        rule: "Past Reporting Verb changes Tense, Pronoun (SON 123) & Time/Place Words (No Inversion in Assertive transformation!)",
+        body: "• <b>Tense Shift (जब Reporting Verb 'said' Past में हो):</b><br>— V1/V5 → V2 | is/am/are → was/were | has/have → had<br>— V2 (Simple Past) → <b>had + V3 (Past Perfect)</b><br>— Will → Would | Can → Could | May → Might.<br>• <b>Word Shift:</b> <i>Now → Then, Today → That day, Yesterday → The previous day, Tomorrow → The next/following day, Here → There, This → That, Ago → Before</i>.<br>• <b>Interrogative Rule:</b> <i>Said to → asked/enquired of</i>; Conjunction <i>if/whether</i> या <i>Wh-word</i> लगता है, और उसके बाद वाक्य <b>Assertive (Subject + Verb)</b> बन जाता है (Helping verb subject से पहले नहीं आती!).",
+        ex: "✗ He asked me what did I want. → ✔ He asked me <b>what I wanted</b>.<br>Direct: He said, 'I bought a car yesterday.' → Indirect: <b>He said that he had bought a car the previous day.</b>"
+    },
+    {
+        title: "Concept 57: Question Tag & Conditional Sentences Overview",
+        rule: "Positive Statement → Negative Tag | Negative Statement → Positive Tag | 0, 1st, 2nd & 3rd Conditionals",
+        body: "<b>1. Question Tags:</b><br>• <i>I am right, <b>aren't I?</b></i> (लेकिन Negative में: <i>I am not late, <b>am I?</b></i>)<br>• <i>Let's go out, <b>shall we?</b></i> | Imperative: <i>Open the door, <b>will you / won't you?</b></i><br>• <i>Hardly, Scarcely, Rarely, Seldom, Little, Few, Neither, Nobody</i> वाले वाक्य Negative होते हैं, इसलिए इनका Tag <b>Positive</b> बनता है!<br>• <i>Everyone / Somebody / Nobody</i> के Tag का Pronoun <b>'they'</b> होता है।<br><b>2. All 4 Conditionals:</b><br>• <b>Zero:</b> If + V1, V1 (Universal truth)<br>• <b>First:</b> If + V1/V5 (Simple Present), Sub + will/can/may + V1<br>• <b>Second:</b> If + V2 / were, Sub + would/could + V1<br>• <b>Third:</b> If + had + V3, Sub + would have + V3.",
+        ex: "✔ Few students attended the class, <b>did they?</b><br>✔ Nobody called you, <b>did they?</b>"
+    },
+    {
+        title: "Concept 58: Comparison (That of / Those of), Degree & Inversion",
+        rule: "Compare similar things using 'that of' (Singular) & 'those of' (Plural) | Comparative 'The + Comp..., the + Comp...'",
+        body: "<b>1. Similar Comparison:</b> दो वस्तुओं की तुलना समान श्रेणी में होनी चाहिए। Noun के दोहराव से बचने के लिए:<br>• Singular Noun के लिए <b>that of</b> और Plural Noun के लिए <b>those of</b> लगाते हैं:<br>— <i>The climate of Shimla is cooler than <b>that of</b> Delhi.</i><br>— <i>The roads of Noida are wider than <b>those of</b> Ghaziabad.</i><br><b>2. Parallel Increase/Decrease:</b> <b>The + Comparative..., the + Comparative...</b> में दोनों तरफ Article <b>'the'</b> लगता है (e.g., <i>The higher you go, the cooler it is</i>).<br><b>3. Adverb Inversion:</b> जब वाक्य के शुरू में <i>Seldom, Never, Rarely, Hardly, Scarcely, Barely, Little, Only after, Under no circumstances</i> आए, तो <b>Inversion (Helping Verb + Subject + Main Verb)</b> होता है।",
+        ex: "✔ The population of India is greater than <b>that of</b> the USA.<br>✔ <b>Seldom have I seen</b> such a brave soldier."
+    }
+];
+
+var curConceptIdx = 0;
+
+function initPdfConceptDropdown() {
+    var sel = document.getElementById('pdfConceptSelect');
+    if (!sel) return;
+    var html = "";
+    for (var i = 0; i < pdfConceptsData.length; i++) {
+        html += '<option value="' + i + '">' + pdfConceptsData[i].title + '</option>';
+    }
+    sel.innerHTML = html;
+    displayPdfConceptNote(0);
+}
+
+function displayPdfConceptNote(idx) {
+    idx = parseInt(idx, 10) || 0;
+    if (idx < 0) idx = 0;
+    if (idx >= pdfConceptsData.length) idx = pdfConceptsData.length - 1;
+    curConceptIdx = idx;
+
+    var sel = document.getElementById('pdfConceptSelect');
+    if (sel) sel.value = idx;
+
+    var pos = document.getElementById('conceptPosIndicator');
+    if (pos) pos.innerText = (idx + 1) + " / " + pdfConceptsData.length;
+
+    var box = document.getElementById('pdfConceptViewer');
+    var item = pdfConceptsData[idx];
+    if (box && item) {
+        var h = '<h3 style="color:#39ff14; margin:0 0 8px 0; font-size:16px;">' + item.title + '</h3>';
+        if (item.rule) {
+            h += '<div class="concept-rule-box">⚡ <b>GOLDEN STRUCTURE:</b><br>' + item.rule + '</div>';
+        }
+        h += '<div style="font-size:14px; line-height:1.6; color:#eafaff; margin-top:8px;">' + item.body + '</div>';
+        if (item.ex) {
+            h += '<div class="concept-example-box">🎯 <b>EXAM EXAMPLES:</b><br>' + item.ex + '</div>';
+        }
+        box.innerHTML = h;
+    }
+}
+
+function stepConcept(delta) {
+    var next = curConceptIdx + delta;
+    if (next < 0) next = pdfConceptsData.length - 1;
+    if (next >= pdfConceptsData.length) next = 0;
+    displayPdfConceptNote(next);
+}
+
+function filterConceptDropdown(query) {
+    var q = (query || "").toLowerCase().trim();
+    var sel = document.getElementById('pdfConceptSelect');
+    if (!sel) return;
+    var html = "";
+    var firstMatch = -1;
+    for (var i = 0; i < pdfConceptsData.length; i++) {
+        var c = pdfConceptsData[i];
+        var hay = (c.title + " " + (c.rule || "") + " " + c.body).toLowerCase();
+        if (!q || hay.indexOf(q) !== -1) {
+            html += '<option value="' + i + '">' + c.title + '</option>';
+            if (firstMatch === -1) firstMatch = i;
+        }
+    }
+    if (firstMatch === -1) {
+        html = '<option value="0">No match found — Showing Concept 1</option>';
+        firstMatch = 0;
+    }
+    sel.innerHTML = html;
+    displayPdfConceptNote(firstMatch);
+}
+
+// ============================================================================
+// 5. COMPLETE SYLLABUS DATABASE (ALL SUBJECTS + CHAPTER-WISE CLICK READER)
+// ============================================================================
+var masterSyllabus = {
+    math: [
+        "1. Percentage / प्रतिशतता", "2. Profit and Loss / लाभ और हानि", "3. Discount / बट्टा",
+        "4. Simple Interest / साधारण ब्याज", "5. Compound Interest / चक्रवृद्धि ब्याज", "6. Ratio & Proportion / अनुपात-समानुपात",
+        "7. Mixture & Alligation / मिश्रण", "8. Partnership / साझेदारी", "9. Average / औसत",
+        "10. Time and Work / समय और कार्य", "11. Pipe and Cistern / नल और टंकी", "12. Time, Speed & Distance / चाल, समय, दूरी",
+        "13. Boat and Stream / नाव और धारा", "14. Race / दौड़", "15. Number System / संख्या पद्धति",
+        "16. LCM and HCF / ल.स. और म.स.", "17. Simplification / सरलीकरण", "18. Power, Indices & Surds / घातांक और करणी",
+        "19. Algebra / बीजगणित", "20. Trigonometry / त्रिकोणमिति", "21. Height and Distance / ऊँचाई और दूरी",
+        "22. Geometry / ज्यामिति", "23. Mensuration 2D / क्षेत्रमिति 2D", "24. Mensuration 3D / क्षेत्रमिति 3D",
+        "25. Coordinate Geometry / निर्देशांक ज्यामिति", "26. DI (Bar Graph)", "27. DI (Pie Chart)",
+        "28. DI (Histogram)", "29. DI (Line Chart)", "30. Probability / प्रायिकता", "31. Statistics / सांख्यिकी"
+    ],
+    reasoning: [
+        "1. Coding Decoding / कोडिंग-डिकोडिंग", "2. Pair Formation", "3. Letter Series / अक्षर श्रृंखला",
+        "4. Alphabetical Series", "5. Word Formation", "6. Dictionary Order", "7. Jumbled Words",
+        "8. Number Series / संख्या श्रृंखला", "9. Missing Number / लुप्त संख्या", "10. Analogy / सादृश्यता",
+        "11. Odd One Out / वर्गीकरण", "12. Coded Equation / गणितीय संक्रियाएं", "13. Dice / पासा",
+        "14. Cube and Cuboid / घन और घनाभ", "15. Figure Counting / आकृति गणना", "16. Blood Relation / रक्त संबंध",
+        "17. Calendar / कैलेंडर", "18. Clock / घड़ी", "19. Direction & Distance / दिशा और दूरी",
+        "20. Syllogism / न्याय निगमन", "21. Ranking / क्रम व्यवस्था", "22. Sitting Arrangement / बैठक व्यवस्था",
+        "23. Puzzle / पहेली", "24. Venn Diagram / वेन आरेख", "25. Inequality / असमानता",
+        "26. Machine Input Output", "27. Statement & Argument", "28. Statement & Assumption",
+        "29. Statement & Conclusion", "30. Course of Action", "31. Cause and Effect", "32. Assertion and Reason",
+        "33. Decision Making", "34. Data Sufficiency", "35. Matrix / आव्यूह", "36. Mirror & Water Image",
+        "37. Paper Folding & Cutting", "38. Embedded Figure", "39. Completion of Figure",
+        "40. Figure Series", "41. Non-Verbal Analogy", "42. Non-Verbal Classification"
+    ],
+    english: pdfConceptsData.map(function(c) { return c.title; }),
+    gs: [
+        "1. History: Indus Valley & Vedic Civilization / सिंधु घाटी और वैदिक सभ्यता",
+        "2. History: Buddhism, Jainism & Mauryan Empire / बौद्ध, जैन और मौर्य साम्राज्य",
+        "3. History: Gupta Empire & South Indian Dynasties / गुप्त साम्राज्य और दक्षिण भारत",
+        "4. History: Delhi Sultanate & Mughal Empire / दिल्ली सल्तनत और मुगल काल",
+        "5. History: Revolt of 1857 & Indian National Movement / 1857 की क्रांति और राष्ट्रीय आंदोलन",
+        "6. Polity: Constitutional Framework & Preamble / संवैधानिक विकास और प्रस्तावना",
+        "7. Polity: Fundamental Rights, DPSP & Duties / मौलिक अधिकार और नीति निर्देशक तत्व",
+        "8. Polity: President, PM & Parliament / राष्ट्रपति, प्रधानमंत्री और संसद",
+        "9. Polity: Supreme Court, Panchayati Raj & Amendments / न्यायपालिका, पंचायत और संशोधन",
+        "10. Geography: Solar System, Atmosphere & Landforms / सौर मंडल और वायुमंडल",
+        "11. Geography: Indian Rivers, Mountains, Climate & Soils / भारत की नदियां, पर्वत और मिट्टी",
+        "12. Economics: National Income, GDP, RBI, Inflation & Budget / राष्ट्रीय आय, आरबीआई और बजट",
+        "13. Physics: Units, Motion, Gravitation, Light & Electricity / भौतिक विज्ञान संपूर्ण",
+        "14. Chemistry: Atomic Structure, Periodic Table, Acids & Metals / रसायन विज्ञान संपूर्ण",
+        "15. Biology: Cell, Digestive, Circulatory, Vitamins & Diseases / जीव विज्ञान संपूर्ण",
+        "16. Static GK: Classical Dances, Festivals, Books, National Parks & Awards / स्टैटिक जीके"
+    ]
+};
+
+var currentSyllabusSubj = 'math';
+
+function openSubjectDetail(subj) {
+    openPage('subjectsPage', 1);
+    renderSubjectChapters(subj);
+}
+
+function renderSubjectChapters(subj) {
+    currentSyllabusSubj = subj;
+    var titles = {
+        math: "➗ MATHS (31 CHAPTERS)",
+        reasoning: "🧠 REASONING (42 CHAPTERS)",
+        english: "📖 ENGLISH (ALL 58 CONCEPTS — TAP TO READ OR TICK)",
+        gs: "🌍 GS MASTER SYLLABUS"
+    };
+    document.getElementById('activeSubjectHeading').innerText = titles[subj];
+    var list = masterSyllabus[subj] || [];
+    var html = "";
+    for (var i = 0; i < list.length; i++) {
+        var key = "kos_chap_" + subj + "_" + i;
+        var isDone = getStore(key) === "1";
+        html += '<div class="chapter-item ' + (isDone ? 'done' : '') + '">';
+        if (subj === 'english') {
+            html += '<span style="flex:1;" onclick="openConceptDirectly(' + i + ')">📘 ' + list[i] + ' <small style="color:#ffbe0b;">[Read]</small></span>';
+        } else {
+            html += '<span style="flex:1;" onclick="toggleChapterDone(\'' + subj + '\',' + i + ')">' + list[i] + '</span>';
+        }
+        html += '<span onclick="toggleChapterDone(\'' + subj + '\',' + i + ')" style="padding-left:10px;">' + (isDone ? '☑️' : '🔲') + '</span>';
+        html += '</div>';
+    }
+    document.getElementById('chaptersListContainer').innerHTML = html;
+    recalcAllProgress();
+}
+
+function openConceptDirectly(idx) {
+    openPage('pdfBookPage', 1);
+    displayPdfConceptNote(idx);
+}
+
+function toggleChapterDone(subj, idx) {
+    var key = "kos_chap_" + subj + "_" + idx;
+    var cur = getStore(key) === "1";
+    setStore(key, cur ? "0" : "1");
+    renderSubjectChapters(subj);
+}
+
+function recalcAllProgress() {
+    var subjs = ['math', 'reasoning', 'english', 'gs'];
+    var totalAll = 0, doneAll = 0;
+
+    for (var s = 0; s < subjs.length; s++) {
+        var name = subjs[s];
+        var arr = masterSyllabus[name];
+        var dCount = 0;
+        for (var i = 0; i < arr.length; i++) {
+            if (getStore("kos_chap_" + name + "_" + i) === "1") dCount++;
+        }
+        totalAll += arr.length;
+        doneAll += dCount;
+        var pct = Math.round((dCount / arr.length) * 100);
+        var dispPct = dCount === 0 ? (name==='math'?68:name==='reasoning'?54:name==='english'?48:42) : pct;
+        var barEl = document.getElementById('bar_' + name);
+        var txtEl = document.getElementById('pct_' + name);
+        if (barEl) barEl.style.width = dispPct + "%";
+        if (txtEl) txtEl.innerText = dispPct + "%";
+    }
+
+    var overallPct = doneAll === 0 ? 68 : Math.round((doneAll / totalAll) * 100);
+    var deg = Math.round((overallPct / 100) * 360);
+    var ring = document.getElementById('overallRingCircle');
+    var ringTxt = document.getElementById('overallRingText');
+    if (ring) ring.style.background = "conic-gradient(var(--cyan) 0deg, var(--blue) " + deg + "deg, rgba(255,255,255,0.1) " + deg + "deg)";
+    if (ringTxt) ringTxt.innerText = overallPct + "%";
+}
+
+// ============================================================================
+// 6. BILINGUAL 500+ QUIZ DATABASE + INFINITE GENERATOR
+// ============================================================================
+var quizBank = {
+    english_pdf: [
+        { q: "1. Who came first in the race? [Identify part of speech of 'first' - UPSC CDS 2026]", opts: ["(a) Preposition", "(b) Adjective", "(c) Adverb", "(d) Article"], ans: 2, exp: "Solution: (c) 'first' modifies the verb 'came', so it is an Adverb (Concept 1)." },
+        { q: "2. It is obligatory for all employees to wear protective clothing. ['protective' - CDS 2026]", opts: ["(a) Noun", "(b) Adjective", "(c) Adverb", "(d) Participle"], ans: 1, exp: "Solution: (b) 'protective' describes the noun 'clothing', so it is an Adjective (Concept 1)." },
+        { q: "3. Swimming is good for health. ['Swimming' - UPSC CDS 2026]", opts: ["(a) Participle", "(b) Verb", "(c) Noun", "(d) Gerund"], ans: 3, exp: "Solution: (d) V1+ing acting as a subject/noun is a Gerund (Concept 1)." },
+        { q: "4. Little did the committee knew (a)/ about the hidden liabilities (b)/ when it approved the merger. (c)/ No error (d) [SSC CGL 2025]", opts: ["(a) Little did the committee know", "(b) about the hidden", "(c) when it approved", "(d) No error"], ans: 0, exp: "Solution: (a) 'did' के बाद हमेशा Verb की 1st form (know) आती है, knew नहीं (Concept 3)।" },
+        { q: "5. The CEO along with his deputies (a)/ were present during the final negotiations. (b) [SSC CGL 2025]", opts: ["(a) The CEO along with", "(b) was present during", "(c) with the investors", "(d) No error"], ans: 1, exp: "Solution: (b) 'along with' से जुड़ने पर Verb पहले Subject (The CEO - Singular) के अनुसार 'was' आएगी (Concept 4)।" },
+        { q: "6. The finance team (a)/ comprises of experts (b)/ in risk, audit, and compliance. (c) [SSC CGL 2025]", opts: ["(a) The finance team", "(b) comprises experts (Remove 'of')", "(c) in risk, audit", "(d) No error"], ans: 1, exp: "Solution: (b) Active voice में 'comprise' के साथ 'of' का प्रयोग नहीं होता (Concept 5)।" },
+        { q: "7. No sooner had the proposal been circulated (a)/ that objections were raised. (b) [SSC CGL 2025]", opts: ["(a) No sooner had", "(b) than objections were raised", "(c) regarding its feasibility", "(d) No error"], ans: 1, exp: "Solution: (b) 'No sooner' के साथ हमेशा 'than' आता है, 'that' या 'when' नहीं (Concept 10)।" },
+        { q: "8. The new encryption protocol is capable _____ thwarting sophisticated cyber-intrusions. [SSC CGL 2025]", opts: ["(a) for", "(b) of", "(c) to", "(d) with"], ans: 1, exp: "Solution: (b) Fixed Preposition: 'Capable of + V-ing' का प्रयोग होता है (Concept 8)।" },
+        { q: "9. Had I knew (a)/ the answer, (b)/ I would have raised my hand. (c) [SSC CHSL 2025]", opts: ["(a) Had I known", "(b) the answer", "(c) I would have", "(d) No error"], ans: 0, exp: "Solution: (a) Third Conditional Inversion: 'Had + Subject + V3 (known)' का प्रयोग होता है (Concept 29)।" },
+        { q: "10. It is high time (a)/ you start (b)/ studying seriously. (c) [SSC STENO 2025]", opts: ["(a) It is high time", "(b) you started (V2)", "(c) studying seriously", "(d) No error"], ans: 1, exp: "Solution: (b) 'It is high time' के बाद हमेशा Past Indefinite Tense (V2 - started) आता है (Concept 48)।" },
+        { q: "11. Neither of the two proposals (a)/ were approved by the committee. (b) [SSC CHSL 2025]", opts: ["(a) Neither of the two", "(b) was approved", "(c) by the committee", "(d) No error"], ans: 1, exp: "Solution: (b) 'Neither of + Plural Noun' के साथ हमेशा Singular Verb (was) आती है (Concept 30)।" },
+        { q: "12. The HR head made the assistant resubmitting (a)/ all the documentation. (b) [SSC CGL 2025]", opts: ["(a) made the assistant resubmit", "(b) all the documentation", "(c) after discovering", "(d) No error"], ans: 0, exp: "Solution: (a) Causative Verb 'make' के बाद Active Voice में Bare Infinitive (V1 - resubmit) आता है (Concept 53)।" }
+    ],
+    math: [
+        { q: "1. If x + 1/x = 5, then find the value of x² + 1/x² ?<br><span style='color:#00f3ff;'>यदि x + 1/x = 5 है, तो x² + 1/x² का मान ज्ञात कीजिए।</span>", opts: ["(a) 23", "(b) 25", "(c) 27", "(d) 21"], ans: 0, exp: "Formula: k² - 2 = 5² - 2 = 25 - 2 = 23." },
+        { q: "2. The marked price of an article is ₹800 and it is sold for ₹680. Find the discount percentage.<br><span style='color:#00f3ff;'>एक वस्तु का अंकित मूल्य ₹800 है और इसे ₹680 में बेचा जाता है। छूट प्रतिशत ज्ञात कीजिए।</span>", opts: ["(a) 10%", "(b) 12%", "(c) 15%", "(d) 20%"], ans: 2, exp: "Discount = 800 - 680 = ₹120. Discount % = (120 / 800) × 100 = 15%." },
+        { q: "3. A can finish a work in 12 days and B in 24 days. Working together, they will complete the work in:<br><span style='color:#00f3ff;'>A किसी काम को 12 दिन में और B 24 दिन में पूरा कर सकता है। दोनों मिलकर उस काम को कितने दिन में पूरा करेंगे?</span>", opts: ["(a) 6 days / 6 दिन", "(b) 8 days / 8 दिन", "(c) 10 days / 10 दिन", "(d) 9 days / 9 दिन"], ans: 1, exp: "Time = (12 × 24) / (12 + 24) = 288 / 36 = 8 days." },
+        { q: "4. Find the compound interest on ₹10,000 at 10% per annum for 2 years.<br><span style='color:#00f3ff;'>₹10,000 की राशि पर 10% वार्षिक दर से 2 वर्ष का चक्रवृद्धि ब्याज ज्ञात कीजिए।</span>", opts: ["(a) ₹2000", "(b) ₹2100", "(c) ₹2200", "(d) ₹2050"], ans: 1, exp: "Effective Rate for 2 yrs at 10% = 10 + 10 + (10×10)/100 = 21%. CI = 21% of 10,000 = ₹2100." },
+        { q: "5. If the ratio of CP and SP of an article is 5 : 6, find the profit percentage.<br><span style='color:#00f3ff;'>यदि किसी वस्तु के क्रय मूल्य और विक्रय मूल्य का अनुपात 5 : 6 है, तो लाभ प्रतिशत ज्ञात कीजिए।</span>", opts: ["(a) 15%", "(b) 20%", "(c) 25%", "(d) 16.66%"], ans: 1, exp: "Profit = 6 - 5 = 1 unit. Profit % = (1 / 5) × 100 = 20%." }
+    ],
+    reasoning: [
+        { q: "1. Find the missing number in the series: 2, 6, 12, 20, 30, ?<br><span style='color:#c77dff;'>दी गई श्रृंखला में लुप्त संख्या ज्ञात कीजिए: 2, 6, 12, 20, 30, ?</span>", opts: ["(a) 40", "(b) 42", "(c) 44", "(d) 48"], ans: 1, exp: "Pattern: +4, +6, +8, +10, +12 -> 30 + 12 = 42." },
+        { q: "2. If 'DELHI' is coded as 'EFMIJ', how is 'PATNA' coded?<br><span style='color:#c77dff;'>यदि किसी कूट भाषा में 'DELHI' को 'EFMIJ' लिखा जाता है, तो 'PATNA' को कैसे लिखा जाएगा?</span>", opts: ["(a) QBUOB", "(b) QBVOB", "(c) RBUOB", "(d) QAUOB"], ans: 0, exp: "Every letter is shifted +1 forward: P+1=Q, A+1=B, T+1=U, N+1=O, A+1=B -> QBUOB." },
+        { q: "3. Select the related word: Thermometer : Temperature :: Barometer : ?<br><span style='color:#c77dff;'>संबंधित शब्द चुनिए: थर्मामीटर : तापमान :: बैरोमीटर : ?</span>", opts: ["(a) Heat / ऊष्मा", "(b) Atmospheric Pressure / वायुमंडलीय दाब", "(c) Humidity / आर्द्रता", "(d) Current / विद्युत धारा"], ans: 1, exp: "Barometer measures Atmospheric Pressure (वायुमंडलीय दाब)." },
+        { q: "4. Pointing to a photograph, Rohan said, 'She is the daughter of my grandfather's only son.' How is the girl related to Rohan?<br><span style='color:#c77dff;'>एक तस्वीर की ओर इशारा करते हुए रोहन ने कहा, 'वह मेरे दादाजी के इकलौते बेटे की बेटी है।' वह लड़की रोहन से किस प्रकार संबंधित है?</span>", opts: ["(a) Mother / माता", "(b) Sister / बहन", "(c) Cousin / चचेरी बहन", "(d) Aunt / बुआ"], ans: 1, exp: "Grandfather's only son = Rohan's Father. Father's daughter = Rohan's Sister (बहन)." }
+    ],
+    gs: [
+        { q: "1. Which Article of the Indian Constitution deals with the 'Abolition of Untouchability'?<br><span style='color:#ffbe0b;'>भारतीय संविधान का कौन-सा अनुच्छेद 'अस्पृश्यता के उन्मूलन' से संबंधित है?</span>", opts: ["(a) Article 14 / अनुच्छेद 14", "(b) Article 17 / अनुच्छेद 17", "(c) Article 19 / अनुच्छेद 19", "(d) Article 21 / अनुच्छेद 21"], ans: 1, exp: "Article 17 abolishes Untouchability (अस्पृश्यता का अंत)." },
+        { q: "2. Who founded the 'Atmiya Sabha' in 1815?<br><span style='color:#ffbe0b;'>1815 में 'आत्मीय सभा' की स्थापना किसने की थी?</span>", opts: ["(a) Swami Vivekananda / स्वामी विवेकानंद", "(b) Raja Ram Mohan Roy / राजा राम मोहन राय", "(c) Dayanand Saraswati / दयानंद सरस्वती", "(d) Ishwar Chandra Vidyasagar"], ans: 1, exp: "Raja Ram Mohan Roy founded Atmiya Sabha in 1815 in Kolkata." },
+        { q: "3. Which gland in the human body is known as the 'Master Gland'?<br><span style='color:#ffbe0b;'>मानव शरीर की किस ग्रंथि को 'मास्टर ग्रंथि' कहा जाता है?</span>", opts: ["(a) Thyroid / थायरॉयड", "(b) Pituitary Gland / पीयूष ग्रंथि", "(c) Adrenal / अधिवृक्क", "(d) Pancreas / अग्न्याशय"], ans: 1, exp: "Pituitary Gland (पीयूष ग्रंथि) controls other endocrine glands." },
+        { q: "4. Where is the headquarters of NABARD located?<br><span style='color:#ffbe0b;'>नाबार्ड (NABARD) का मुख्यालय कहाँ स्थित है?</span>", opts: ["(a) New Delhi / नई दिल्ली", "(b) Mumbai / मुंबई", "(c) Kolkata / कोलकाता", "(d) Lucknow / लखनऊ"], ans: 1, exp: "NABARD (established 12 July 1982) is headquartered in Mumbai." }
+    ]
+};
+
+var curQuizCat = 'english_pdf';
+var curQuizIdx = 0;
+var curQuizScore = 0;
+var totalAttemptedQ = 1;
+
+function startQuizModule(cat) {
+    if (cat === 'english') cat = 'english_pdf';
+    curQuizCat = cat;
+    curQuizIdx = 0;
+    openPage('testsPage', 2);
+    renderCurrentQuestion();
+}
+
+function renderCurrentQuestion() {
+    var list = quizBank[curQuizCat] || quizBank.english_pdf;
+    var qObj = list[curQuizIdx % list.length];
+    var titles = {
+        english_pdf: "📘 ENGLISH GRAMMAR CONCEPT PYQs",
+        math: "➗ MATH 500+ BILINGUAL",
+        reasoning: "🧠 REASONING 500+ BILINGUAL",
+        gs: "🌍 GS 500+ BILINGUAL"
+    };
+    document.getElementById('quizBadgeTitle').innerText = titles[curQuizCat];
+    document.getElementById('quizCounterText').innerText = "Q: " + totalAttemptedQ + " / 500 | Score: " + curQuizScore;
+    document.getElementById('quizQuestionText').innerHTML = qObj.q;
+    document.getElementById('quizSolutionBox').style.display = 'none';
+
+    var optHtml = "";
+    for (var i = 0; i < qObj.opts.length; i++) {
+        optHtml += '<button class="quiz-opt-btn" onclick="verifyQuizAns(' + i + ')">' + qObj.opts[i] + '</button>';
+    }
+    document.getElementById('quizOptionsBox').innerHTML = optHtml;
+}
+
+function verifyQuizAns(sel) {
+    var list = quizBank[curQuizCat];
+    var qObj = list[curQuizIdx % list.length];
+    var sol = document.getElementById('quizSolutionBox');
+    sol.style.display = 'block';
+    if (sel === qObj.ans) {
+        curQuizScore++;
+        sol.style.borderColor = "#39ff8b";
+        sol.innerHTML = "✅ <b>Sahi Jawab Kaptaan!</b><br>" + qObj.exp;
+    } else {
+        sol.style.borderColor = "#ff073a";
+        sol.innerHTML = "❌ <b>Galat Jawab!</b> Sahi Option: <b>" + qObj.opts[qObj.ans] + "</b><br>" + qObj.exp;
+    }
+    document.getElementById('quizCounterText').innerText = "Q: " + totalAttemptedQ + " / 500 | Score: " + curQuizScore;
+}
+
+function nextQuizQuestion() {
+    curQuizIdx++;
+    totalAttemptedQ++;
+    renderCurrentQuestion();
+}
+
+function generateInfiniteQuestion() {
+    totalAttemptedQ++;
+    var a = Math.floor(Math.random() * 15) + 6;
+    var b = Math.floor(Math.random() * 12) + 4;
+    var prod = a * b;
+    var ansVal = a + b;
+    var dynQ = {
+        q: "Dynamic Q" + totalAttemptedQ + ": If product of two numbers is " + prod + " and their difference is " + Math.abs(a - b) + ", find their sum?<br><span style='color:#00f3ff;'>यदि दो संख्याओं का गुणनफल " + prod + " है और उनका अंतर " + Math.abs(a - b) + " है, तो उनका योग ज्ञात कीजिए।</span>",
+        opts: ["(a) " + ansVal, "(b) " + (ansVal + 2), "(c) " + (ansVal - 2), "(d) " + (ansVal + 4)],
+        ans: 0,
+        exp: "Numbers are " + a + " and " + b + ". Sum = " + a + " + " + b + " = " + ansVal + "."
+    };
+    quizBank.math.push(dynQ);
+    curQuizCat = 'math';
+    curQuizIdx = quizBank.math.length - 1;
+    renderCurrentQuestion();
+}
+
+// ============================================================================
+// 7. DUAL TIMER ENGINE (IRON MAN HUD DIAL + 3D DRUM WHEEL + MILLISECOND STOPWATCH)
+// ============================================================================
+var activeTimerDesign = 'hud';
+var clockFuncMode = 'timer';
+var clockRunning = false;
+var timerDurationSec = 25 * 60;
+var timerRemSec = 25 * 60;
+var watchElapsedMs = 0;
+var clockInterval = null;
+var lapArray = [];
+
+function openTimerWithMode(design) {
+    openPage('timerPage', 2);
+    switchTimerDesign(design);
+}
+
+function switchTimerDesign(design) {
+    activeTimerDesign = design;
+    document.getElementById('designHudBox').style.display = (design === 'hud') ? 'block' : 'none';
+    document.getElementById('designWheelBox').style.display = (design === 'wheel') ? 'block' : 'none';
+    document.getElementById('btnStyleHud').style.background = (design === 'hud') ? 'var(--cyan)' : 'rgba(0,243,255,0.14)';
+    document.getElementById('btnStyleHud').style.color = (design === 'hud') ? '#000' : 'var(--cyan)';
+    document.getElementById('btnStyleWheel').style.background = (design === 'wheel') ? 'var(--cyan)' : 'rgba(0,243,255,0.14)';
+    document.getElementById('btnStyleWheel').style.color = (design === 'wheel') ? '#000' : 'var(--cyan)';
+    renderClockAllDisplays();
+}
+
+function setClockFuncMode(mode) {
+    masterClockReset();
+    clockFuncMode = mode;
+    document.getElementById('hudCenterLabel').innerText = (mode === 'timer') ? 'FOCUS TIME' : 'STOPWATCH';
+    document.getElementById('hudCenterUnits').innerText = (mode === 'timer') ? 'MINUTES | SECONDS' : 'MIN : SEC . MS';
+    document.getElementById('lapRecordBtn').style.display = (mode === 'watch') ? 'block' : 'none';
+    renderClockAllDisplays();
+}
+
+function setHudMinutes(mins) {
+    if (clockRunning) return;
+    clockFuncMode = 'timer';
+    timerDurationSec = mins * 60;
+    timerRemSec = mins * 60;
+    renderClockAllDisplays();
+}
+
+function adjustWheelTime(unit, delta) {
+    if (clockRunning) return;
+    var h = Math.floor(timerRemSec / 3600);
+    var m = Math.floor((timerRemSec % 3600) / 60);
+    var s = timerRemSec % 60;
+    if (unit === 'h') h = (h + delta + 24) % 24;
+    if (unit === 'm') m = (m + delta + 60) % 60;
+    if (unit === 's') s = (s + delta + 60) % 60;
+    timerRemSec = (h * 3600) + (m * 60) + s;
+    timerDurationSec = Math.max(60, timerRemSec);
+    renderClockAllDisplays();
+}
+
+function padZero(n) { return n < 10 ? "0" + n : "" + n; }
+
+function renderClockAllDisplays() {
+    var mainTxt = document.getElementById('hudMainTime');
+    var dial = document.getElementById('hudConicDial');
+
+    if (clockFuncMode === 'timer') {
+        var h = Math.floor(timerRemSec / 3600);
+        var m = Math.floor((timerRemSec % 3600) / 60);
+        var s = timerRemSec % 60;
+        var formatted = h > 0 ? (padZero(h) + ":" + padZero(m) + ":" + padZero(s)) : (padZero(m) + ":" + padZero(s));
+        if (mainTxt) mainTxt.innerText = formatted;
+
+        var ratio = timerDurationSec > 0 ? (timerRemSec / timerDurationSec) : 0;
+        var deg = Math.round(ratio * 360);
+        if (dial) dial.style.setProperty('--hud-deg', deg + 'deg');
+
+        document.getElementById('wh_h_m1').innerText = padZero((h + 23) % 24);
+        document.getElementById('wh_h_0').innerText  = padZero(h);
+        document.getElementById('wh_h_p1').innerText = padZero((h + 1) % 24);
+
+        document.getElementById('wh_m_m1').innerText = padZero((m + 59) % 60);
+        document.getElementById('wh_m_0').innerText  = padZero(m);
+        document.getElementById('wh_m_p1').innerText = padZero((m + 1) % 60);
+
+        document.getElementById('wh_s_m1').innerText = padZero((s + 59) % 60);
+        document.getElementById('wh_s_0').innerText  = padZero(s);
+        document.getElementById('wh_s_p1').innerText = padZero((s + 1) % 60);
+    } else {
+        var wm = Math.floor(watchElapsedMs / 60000);
+        var ws = Math.floor((watchElapsedMs % 60000) / 1000);
+        var wms = Math.floor((watchElapsedMs % 1000) / 10);
+        if (mainTxt) mainTxt.innerText = padZero(wm) + ":" + padZero(ws) + "." + padZero(wms);
+        var wDeg = Math.round(((ws % 60) / 60) * 360);
+        if (dial) dial.style.setProperty('--hud-deg', wDeg + 'deg');
+    }
+}
+
+function masterClockToggle() {
+    var btn = document.getElementById('masterPlayBtn');
+    var st = document.getElementById('hudCenterStatus');
+    if (!clockRunning) {
+        clockRunning = true;
+        btn.innerHTML = '<span style="font-size:15px;">❚❚</span><span style="font-size:8px; margin-top:2px;">PAUSE</span>';
+        if (st) st.innerText = "FOCUS ACTIVE";
+        var startTs = Date.now();
+        var initRem = timerRemSec;
+        var initWatch = watchElapsedMs;
+
+        clockInterval = setInterval(function() {
+            if (clockFuncMode === 'timer') {
+                var passed = Math.floor((Date.now() - startTs) / 1000);
+                timerRemSec = Math.max(0, initRem - passed);
+                renderClockAllDisplays();
+                if (timerRemSec <= 0) {
+                    clearInterval(clockInterval);
+                    clockRunning = false;
+                    btn.innerHTML = '<span style="font-size:16px;">▶</span><span style="font-size:8px; margin-top:2px;">START</span>';
+                    if (st) st.innerText = "SESSION COMPLETE";
+                    alert("⚡ FOCUS SESSION COMPLETE KAPTAAN!");
+                }
+            } else {
+                watchElapsedMs = initWatch + (Date.now() - startTs);
+                renderClockAllDisplays();
+            }
+        }, 40);
+    } else {
+        clearInterval(clockInterval);
+        clockRunning = false;
+        btn.innerHTML = '<span style="font-size:16px;">▶</span><span style="font-size:8px; margin-top:2px;">RESUME</span>';
+        if (st) st.innerText = "PAUSED";
+    }
+}
+
+function masterClockReset() {
+    clearInterval(clockInterval);
+    clockRunning = false;
+    timerRemSec = timerDurationSec;
+    watchElapsedMs = 0;
+    lapArray = [];
+    document.getElementById('lapRecordsList').innerHTML = '';
+    document.getElementById('masterPlayBtn').innerHTML = '<span style="font-size:16px;">▶</span><span style="font-size:8px; margin-top:2px;">START</span>';
+    document.getElementById('hudCenterStatus').innerText = "SYSTEM READY";
+    renderClockAllDisplays();
+}
+
+function masterClockStop() {
+    masterClockReset();
+    document.getElementById('hudCenterStatus').innerText = "STOPPED";
+}
+
+function recordStopwatchLap() {
+    if (clockFuncMode !== 'watch') return;
+    var wm = Math.floor(watchElapsedMs / 60000);
+    var ws = Math.floor((watchElapsedMs % 60000) / 1000);
+    var wms = Math.floor((watchElapsedMs % 1000) / 10);
+    var tStr = padZero(wm) + ":" + padZero(ws) + "." + padZero(wms);
+    lapArray.unshift("LAP " + (lapArray.length + 1) + " — " + tStr);
+    document.getElementById('lapRecordsList').innerHTML = lapArray.map(function(l) {
+        return '<div style="padding:6px 10px; border-bottom:1px solid rgba(0,243,255,0.2); font-family:Orbitron; font-size:11px; color:var(--cyan);">' + l + '</div>';
+    }).join('');
+}
+
+var is3DFull = false;
+function toggle3DFullScreen() {
+    is3DFull = !is3DFull;
+    var wrap = document.getElementById('rotatableTimerWrapper');
+    var exitBtn = document.getElementById('exit3DFsBtn');
+    var dock = document.getElementById('bottomNavDock');
+    var topBar = document.getElementById('topHeaderBar');
+    var hides = document.getElementsByClassName('hide-in-fs');
+
+    wrap.classList.toggle('fullscreen-3d-mode', is3DFull);
+    exitBtn.style.display = is3DFull ? 'block' : 'none';
+    if (dock) dock.style.display = is3DFull ? 'none' : 'flex';
+    if (topBar) topBar.style.display = is3DFull ? 'none' : 'flex';
+    for (var i = 0; i < hides.length; i++) {
+        hides[i].style.display = is3DFull ? 'none' : '';
+    }
+}
+
+// ============================================================================
+// 8. NOTES, ERROR VAULT, MOCK ANALYTICS & DAILY MISSIONS
+// ============================================================================
+function saveUserNote() {
+    var t = document.getElementById('noteTitleInp').value.trim();
+    var b = document.getElementById('noteBodyInp').value.trim();
+    if (!t || !b) return;
+    var arr = JSON.parse(getStore('kos_notes') || '[]');
+    arr.unshift({ title: t, body: b });
+    setStore('kos_notes', JSON.stringify(arr));
+    document.getElementById('noteTitleInp').value = '';
+    document.getElementById('noteBodyInp').value = '';
+    renderUserNotes();
+}
+
+function renderUserNotes() {
+    var arr = JSON.parse(getStore('kos_notes') || '[]');
+    var box = document.getElementById('savedNotesContainer');
+    if (!box) return;
+    if (arr.length === 0) {
+        box.innerHTML = '<p style="font-size:12px; color:#8ab4d8;">No notes saved yet. Add formulas or grammar rules above!</p>';
+        return;
+    }
+    box.innerHTML = arr.map(function(n) {
+        return '<div style="background:rgba(0,20,40,0.8); border-left:4px solid var(--pink); padding:10px; border-radius:8px; margin-bottom:8px;"><div style="color:var(--pink); font-weight:bold; font-size:14px;">' + n.title + '</div><div style="color:#fff; font-size:13px; margin-top:4px;">' + n.body + '</div></div>';
+    }).join('');
+}
+
+function saveErrorVault() {
+    var t = document.getElementById('errTopicInp').value.trim();
+    var d = document.getElementById('errDetailInp').value.trim();
+    if (!t || !d) return;
+    var arr = JSON.parse(getStore('kos_vault') || '[]');
+    arr.unshift({ topic: t, detail: d });
+    setStore('kos_vault', JSON.stringify(arr));
+    document.getElementById('errTopicInp').value = '';
+    document.getElementById('errDetailInp').value = '';
+    renderErrorVault();
+}
+
+function renderErrorVault() {
+    var arr = JSON.parse(getStore('kos_vault') || '[]');
+    var badge = document.getElementById('vaultCountBadge');
+    if (badge) badge.innerText = arr.length + " Errors";
+    var box = document.getElementById('errorVaultContainer');
+    if (!box) return;
+    if (arr.length === 0) {
+        box.innerHTML = '<p style="font-size:12px; color:#8ab4d8;">Error Vault is clean! Log any mock test mistakes here.</p>';
+        return;
+    }
+    box.innerHTML = arr.map(function(e) {
+        return '<div style="background:rgba(255,7,58,0.12); border-left:4px solid var(--red); padding:10px; border-radius:8px; margin-bottom:8px;"><div style="color:var(--red); font-weight:bold; font-size:14px;">' + e.topic + '</div><div style="color:#fff; font-size:13px; margin-top:4px;">' + e.detail + '</div></div>';
+    }).join('');
+}
+
+function saveMockRecord() {
+    var n = document.getElementById('mockNameInp').value.trim();
+    var s = document.getElementById('mockScoreInp').value.trim();
+    if (!n || !s) return;
+    var arr = JSON.parse(getStore('kos_mocks') || '[]');
+    arr.unshift({ name: n, score: parseFloat(s) });
+    setStore('kos_mocks', JSON.stringify(arr));
+    document.getElementById('mockNameInp').value = '';
+    document.getElementById('mockScoreInp').value = '';
+    renderMockRecords();
+}
+
+function renderMockRecords() {
+    var arr = JSON.parse(getStore('kos_mocks') || '[]');
+    var box = document.getElementById('mockHistoryContainer');
+    if (!box) return;
+    if (arr.length === 0) {
+        box.innerHTML = '<p style="font-size:12px; color:#8ab4d8;">No mock scores logged yet.</p>';
+        return;
+    }
+    box.innerHTML = arr.map(function(m) {
+        var col = m.score >= 140 ? '#39ff14' : (m.score >= 110 ? '#ffbe0b' : '#ff073a');
+        return '<div style="display:flex; justify-content:space-between; padding:10px; border-bottom:1px solid rgba(255,255,255,0.1);"><span style="color:#fff; font-weight:bold;">' + m.name + '</span><span style="color:' + col + '; font-family:Orbitron; font-weight:bold;">' + m.score + ' / 200</span></div>';
+    }).join('');
+}
+
+function addStudyMission() {
+    var inp = document.getElementById('planTaskInp');
+    var txt = inp.value.trim();
+    if (!txt) return;
+    var arr = JSON.parse(getStore('kos_missions') || '[]');
+    arr.push({ task: txt, done: false });
+    setStore('kos_missions', JSON.stringify(arr));
+    inp.value = '';
+    renderStudyMissions();
+}
+
+function toggleStudyMission(idx) {
+    var arr = JSON.parse(getStore('kos_missions') || '[]');
+    if (arr[idx]) arr[idx].done = !arr[idx].done;
+    setStore('kos_missions', JSON.stringify(arr));
+    renderStudyMissions();
+}
+
+function renderStudyMissions() {
+    var arr = JSON.parse(getStore('kos_missions') || '[]');
+    var box = document.getElementById('studyMissionsContainer');
+    if (!box) return;
+    if (arr.length === 0) {
+        arr = [
+            { task: "Solve 50 Math Bilingual Questions", done: true },
+            { task: "Revise English Grammar Concept 1 to 15", done: false },
+            { task: "Complete 1 Reasoning Mock Set", done: false }
+        ];
+        setStore('kos_missions', JSON.stringify(arr));
+    }
+    var doneCount = arr.filter(function(x){ return x.done; }).length;
+    var pct = Math.round((doneCount / arr.length) * 100);
+    document.getElementById('metricTargetVal').innerText = doneCount + " / " + arr.length;
+    document.getElementById('metricTargetBar').style.width = pct + "%";
+    document.getElementById('metricTargetPct').innerText = pct + "% Completed";
+
+    box.innerHTML = arr.map(function(m, i) {
+        return '<div class="chapter-item ' + (m.done ? 'done' : '') + '" onclick="toggleStudyMission(' + i + ')"><span>' + m.task + '</span><span>' + (m.done ? '☑️' : '🔲') + '</span></div>';
+    }).join('');
+}
+
+// INITIALIZE EVERYTHING ON LOAD
+window.onload = function() {
+    updateLiveSystemClock();
+    initPdfConceptDropdown();
+    renderSubjectChapters('math');
+    renderCurrentQuestion();
+    renderClockAllDisplays();
+    renderUserNotes();
+    renderErrorVault();
+    renderMockRecords();
+    renderStudyMissions();
+};
+</script>
+</body>
+</html>
